@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ships"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1000" Width="600">
+        Title="Ships - Menu" Height="1000" Width="600">
     <Grid>
         <Button x:Name="PlayButton" Content="Play" Click="PlayButton_Click"/>
     </Grid>
