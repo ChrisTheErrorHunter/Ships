@@ -19,7 +19,7 @@
         </Style>
     </Window.Resources>
     <StackPanel>
-        <Grid>
+        <Grid x:Name="MyContainer">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition />
@@ -48,8 +48,28 @@
                 <RowDefinition />
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <Button x:Name="DB00" Grid.Column="1" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="DB01" Grid.Column="2" Grid.Row="1" Click="PlayTile_Click"/>
+            <Label x:Name="ALabelTop" Content="A" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="BLabelTop" Content="B" Grid.Column="2" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="CLabelTop" Content="C" Grid.Column="3" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="DLabelTop" Content="D" Grid.Column="4" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="ELabelTop" Content="E" Grid.Column="5" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="FLabelTop" Content="F" Grid.Column="6" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="GLabelTop" Content="G" Grid.Column="7" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="HLabelTop" Content="H" Grid.Column="8" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="ILabelTop" Content="I" Grid.Column="9" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="JLabelTop" Content="J" Grid.Column="10" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="OneLabelTop" Content="1" Grid.Column="0" Grid.Row="10" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="TwoLabelTop" Content="2" Grid.Column="0" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="ThreeLabelTop" Content="3" Grid.Column="0" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="FourLabelTop" Content="4" Grid.Column="0" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="FiveLabelTop" Content="5" Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="SixLabelTop" Content="6" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="SevenLabelTop" Content="7" Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="EightLabelTop" Content="8" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="NineLabelTop" Content="9" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="TenLabelTop" Content="10" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Button x:Name="DB00" Grid.Column="1" Grid.Row="1" Click="PlayTile_Click" />
+            <Button x:Name="DB01" Grid.Column="2" Grid.Row="1" Click="PlayTile_Click" />
             <Button x:Name="DB02" Grid.Column="3" Grid.Row="1" Click="PlayTile_Click"/>
             <Button x:Name="DB03" Grid.Column="4" Grid.Row="1" Click="PlayTile_Click"/>
             <Button x:Name="DB04" Grid.Column="5" Grid.Row="1" Click="PlayTile_Click"/>
@@ -149,7 +169,7 @@
             <Button x:Name="DB98" Grid.Column="9" Grid.Row="10" Click="PlayTile_Click"/>
             <Button x:Name="DB99" Grid.Column="10" Grid.Row="10" Click="PlayTile_Click"/>
         </Grid>
-        <Grid>
+        <Grid x:Name="HisContainer">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition />
@@ -278,6 +298,26 @@
             <Button x:Name="PB97" Grid.Column="8" Grid.Row="10" Click="PlayTile_Click"/>
             <Button x:Name="PB98" Grid.Column="9" Grid.Row="10" Click="PlayTile_Click"/>
             <Button x:Name="PB99" Grid.Column="10" Grid.Row="10" Click="PlayTile_Click"/>
+            <Label x:Name="ALabelBottom" Content="A" Grid.Column="1" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="BLabelBottom" Content="B" Grid.Column="2" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="CLabelBottom" Content="C" Grid.Column="3" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="DLabelBottom" Content="D" Grid.Column="4" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="ELabelBottom" Content="E" Grid.Column="5" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="FLabelBottom" Content="F" Grid.Column="6" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="GLabelBottom" Content="G" Grid.Column="7" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="HLabelBottom" Content="H" Grid.Column="8" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="ILabelBottom" Content="I" Grid.Column="9" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="JLabelBottom" Content="J" Grid.Column="10" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
+            <Label x:Name="OneLabelBottom" Content="1" Grid.Column="0" Grid.Row="10" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="TwoLabelBottom" Content="2" Grid.Column="0" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="ThreeLabelBottom" Content="3" Grid.Column="0" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="FourLabelBottom" Content="4" Grid.Column="0" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="FiveLabelBottom" Content="5" Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="SixLabelBottom" Content="6" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="SevenLabelBottom" Content="7" Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="EightLabelBottom" Content="8" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="NineLabelBottom" Content="9" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="TenLabelBottom" Content="10" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
 
 
         </Grid>
