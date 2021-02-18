@@ -10,6 +10,20 @@
         <Style TargetType="Button">
             <Setter Property="Height" Value="30"/>
             <Setter Property="Width" Value="30"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="ColumnDefinition">
             <Setter Property="Width" Value="30" />
@@ -19,7 +33,7 @@
         </Style>
     </Window.Resources>
     <StackPanel>
-        <Grid x:Name="MyContainer">
+        <Grid x:Name="DisplayContainer">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition />
@@ -68,108 +82,108 @@
             <Label x:Name="EightLabelTop" Content="8" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
             <Label x:Name="NineLabelTop" Content="9" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
             <Label x:Name="TenLabelTop" Content="10" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
-            <Button x:Name="DB00" Grid.Column="1" Grid.Row="1" Click="PlayTile_Click" />
-            <Button x:Name="DB01" Grid.Column="2" Grid.Row="1" Click="PlayTile_Click" />
-            <Button x:Name="DB02" Grid.Column="3" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="DB03" Grid.Column="4" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="DB04" Grid.Column="5" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="DB05" Grid.Column="6" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="DB06" Grid.Column="7" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="DB07" Grid.Column="8" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="DB08" Grid.Column="9" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="DB09" Grid.Column="10" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="DB10" Grid.Column="1" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="DB11" Grid.Column="2" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="DB12" Grid.Column="3" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="DB13" Grid.Column="4" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="DB14" Grid.Column="5" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="DB15" Grid.Column="6" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="DB16" Grid.Column="7" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="DB17" Grid.Column="8" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="DB18" Grid.Column="9" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="DB19" Grid.Column="10" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="DB20" Grid.Column="1" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="DB21" Grid.Column="2" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="DB22" Grid.Column="3" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="DB23" Grid.Column="4" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="DB24" Grid.Column="5" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="DB25" Grid.Column="6" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="DB26" Grid.Column="7" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="DB27" Grid.Column="8" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="DB28" Grid.Column="9" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="DB29" Grid.Column="10" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="DB30" Grid.Column="1" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="DB31" Grid.Column="2" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="DB32" Grid.Column="3" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="DB33" Grid.Column="4" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="DB34" Grid.Column="5" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="DB35" Grid.Column="6" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="DB36" Grid.Column="7" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="DB37" Grid.Column="8" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="DB38" Grid.Column="9" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="DB39" Grid.Column="10" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="DB40" Grid.Column="1" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="DB41" Grid.Column="2" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="DB42" Grid.Column="3" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="DB43" Grid.Column="4" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="DB44" Grid.Column="5" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="DB45" Grid.Column="6" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="DB46" Grid.Column="7" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="DB47" Grid.Column="8" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="DB48" Grid.Column="9" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="DB49" Grid.Column="10" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="DB50" Grid.Column="1" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="DB51" Grid.Column="2" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="DB52" Grid.Column="3" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="DB53" Grid.Column="4" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="DB54" Grid.Column="5" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="DB55" Grid.Column="6" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="DB56" Grid.Column="7" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="DB57" Grid.Column="8" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="DB58" Grid.Column="9" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="DB59" Grid.Column="10" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="DB60" Grid.Column="1" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="DB61" Grid.Column="2" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="DB62" Grid.Column="3" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="DB63" Grid.Column="4" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="DB64" Grid.Column="5" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="DB65" Grid.Column="6" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="DB66" Grid.Column="7" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="DB67" Grid.Column="8" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="DB68" Grid.Column="9" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="DB69" Grid.Column="10" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="DB70" Grid.Column="1" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="DB71" Grid.Column="2" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="DB72" Grid.Column="3" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="DB73" Grid.Column="4" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="DB74" Grid.Column="5" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="DB75" Grid.Column="6" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="DB76" Grid.Column="7" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="DB77" Grid.Column="8" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="DB78" Grid.Column="9" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="DB79" Grid.Column="10" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="DB80" Grid.Column="1" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="DB81" Grid.Column="2" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="DB82" Grid.Column="3" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="DB83" Grid.Column="4" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="DB84" Grid.Column="5" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="DB85" Grid.Column="6" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="DB86" Grid.Column="7" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="DB87" Grid.Column="8" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="DB88" Grid.Column="9" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="DB89" Grid.Column="10" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="DB90" Grid.Column="1" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="DB91" Grid.Column="2" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="DB92" Grid.Column="3" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="DB93" Grid.Column="4" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="DB94" Grid.Column="5" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="DB95" Grid.Column="6" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="DB96" Grid.Column="7" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="DB97" Grid.Column="8" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="DB98" Grid.Column="9" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="DB99" Grid.Column="10" Grid.Row="10" Click="PlayTile_Click"/>
+            <Button x:Name="DB00" Grid.Column="1" Grid.Row="1" Click="DisplayTile_Click" />
+            <Button x:Name="DB01" Grid.Column="2" Grid.Row="1" Click="DisplayTile_Click" />
+            <Button x:Name="DB02" Grid.Column="3" Grid.Row="1" Click="DisplayTile_Click"/>
+            <Button x:Name="DB03" Grid.Column="4" Grid.Row="1" Click="DisplayTile_Click"/>
+            <Button x:Name="DB04" Grid.Column="5" Grid.Row="1" Click="DisplayTile_Click"/>
+            <Button x:Name="DB05" Grid.Column="6" Grid.Row="1" Click="DisplayTile_Click"/>
+            <Button x:Name="DB06" Grid.Column="7" Grid.Row="1" Click="DisplayTile_Click"/>
+            <Button x:Name="DB07" Grid.Column="8" Grid.Row="1" Click="DisplayTile_Click"/>
+            <Button x:Name="DB08" Grid.Column="9" Grid.Row="1" Click="DisplayTile_Click"/>
+            <Button x:Name="DB09" Grid.Column="10" Grid.Row="1" Click="DisplayTile_Click"/>
+            <Button x:Name="DB10" Grid.Column="1" Grid.Row="2" Click="DisplayTile_Click"/>
+            <Button x:Name="DB11" Grid.Column="2" Grid.Row="2" Click="DisplayTile_Click"/>
+            <Button x:Name="DB12" Grid.Column="3" Grid.Row="2" Click="DisplayTile_Click"/>
+            <Button x:Name="DB13" Grid.Column="4" Grid.Row="2" Click="DisplayTile_Click"/>
+            <Button x:Name="DB14" Grid.Column="5" Grid.Row="2" Click="DisplayTile_Click"/>
+            <Button x:Name="DB15" Grid.Column="6" Grid.Row="2" Click="DisplayTile_Click"/>
+            <Button x:Name="DB16" Grid.Column="7" Grid.Row="2" Click="DisplayTile_Click"/>
+            <Button x:Name="DB17" Grid.Column="8" Grid.Row="2" Click="DisplayTile_Click"/>
+            <Button x:Name="DB18" Grid.Column="9" Grid.Row="2" Click="DisplayTile_Click"/>
+            <Button x:Name="DB19" Grid.Column="10" Grid.Row="2" Click="DisplayTile_Click"/>
+            <Button x:Name="DB20" Grid.Column="1" Grid.Row="3" Click="DisplayTile_Click"/>
+            <Button x:Name="DB21" Grid.Column="2" Grid.Row="3" Click="DisplayTile_Click"/>
+            <Button x:Name="DB22" Grid.Column="3" Grid.Row="3" Click="DisplayTile_Click"/>
+            <Button x:Name="DB23" Grid.Column="4" Grid.Row="3" Click="DisplayTile_Click"/>
+            <Button x:Name="DB24" Grid.Column="5" Grid.Row="3" Click="DisplayTile_Click"/>
+            <Button x:Name="DB25" Grid.Column="6" Grid.Row="3" Click="DisplayTile_Click"/>
+            <Button x:Name="DB26" Grid.Column="7" Grid.Row="3" Click="DisplayTile_Click"/>
+            <Button x:Name="DB27" Grid.Column="8" Grid.Row="3" Click="DisplayTile_Click"/>
+            <Button x:Name="DB28" Grid.Column="9" Grid.Row="3" Click="DisplayTile_Click"/>
+            <Button x:Name="DB29" Grid.Column="10" Grid.Row="3" Click="DisplayTile_Click"/>
+            <Button x:Name="DB30" Grid.Column="1" Grid.Row="4" Click="DisplayTile_Click"/>
+            <Button x:Name="DB31" Grid.Column="2" Grid.Row="4" Click="DisplayTile_Click"/>
+            <Button x:Name="DB32" Grid.Column="3" Grid.Row="4" Click="DisplayTile_Click"/>
+            <Button x:Name="DB33" Grid.Column="4" Grid.Row="4" Click="DisplayTile_Click"/>
+            <Button x:Name="DB34" Grid.Column="5" Grid.Row="4" Click="DisplayTile_Click"/>
+            <Button x:Name="DB35" Grid.Column="6" Grid.Row="4" Click="DisplayTile_Click"/>
+            <Button x:Name="DB36" Grid.Column="7" Grid.Row="4" Click="DisplayTile_Click"/>
+            <Button x:Name="DB37" Grid.Column="8" Grid.Row="4" Click="DisplayTile_Click"/>
+            <Button x:Name="DB38" Grid.Column="9" Grid.Row="4" Click="DisplayTile_Click"/>
+            <Button x:Name="DB39" Grid.Column="10" Grid.Row="4" Click="DisplayTile_Click"/>
+            <Button x:Name="DB40" Grid.Column="1" Grid.Row="5" Click="DisplayTile_Click"/>
+            <Button x:Name="DB41" Grid.Column="2" Grid.Row="5" Click="DisplayTile_Click"/>
+            <Button x:Name="DB42" Grid.Column="3" Grid.Row="5" Click="DisplayTile_Click"/>
+            <Button x:Name="DB43" Grid.Column="4" Grid.Row="5" Click="DisplayTile_Click"/>
+            <Button x:Name="DB44" Grid.Column="5" Grid.Row="5" Click="DisplayTile_Click"/>
+            <Button x:Name="DB45" Grid.Column="6" Grid.Row="5" Click="DisplayTile_Click"/>
+            <Button x:Name="DB46" Grid.Column="7" Grid.Row="5" Click="DisplayTile_Click"/>
+            <Button x:Name="DB47" Grid.Column="8" Grid.Row="5" Click="DisplayTile_Click"/>
+            <Button x:Name="DB48" Grid.Column="9" Grid.Row="5" Click="DisplayTile_Click"/>
+            <Button x:Name="DB49" Grid.Column="10" Grid.Row="5" Click="DisplayTile_Click"/>
+            <Button x:Name="DB50" Grid.Column="1" Grid.Row="6" Click="DisplayTile_Click"/>
+            <Button x:Name="DB51" Grid.Column="2" Grid.Row="6" Click="DisplayTile_Click"/>
+            <Button x:Name="DB52" Grid.Column="3" Grid.Row="6" Click="DisplayTile_Click"/>
+            <Button x:Name="DB53" Grid.Column="4" Grid.Row="6" Click="DisplayTile_Click"/>
+            <Button x:Name="DB54" Grid.Column="5" Grid.Row="6" Click="DisplayTile_Click"/>
+            <Button x:Name="DB55" Grid.Column="6" Grid.Row="6" Click="DisplayTile_Click"/>
+            <Button x:Name="DB56" Grid.Column="7" Grid.Row="6" Click="DisplayTile_Click"/>
+            <Button x:Name="DB57" Grid.Column="8" Grid.Row="6" Click="DisplayTile_Click"/>
+            <Button x:Name="DB58" Grid.Column="9" Grid.Row="6" Click="DisplayTile_Click"/>
+            <Button x:Name="DB59" Grid.Column="10" Grid.Row="6" Click="DisplayTile_Click"/>
+            <Button x:Name="DB60" Grid.Column="1" Grid.Row="7" Click="DisplayTile_Click"/>
+            <Button x:Name="DB61" Grid.Column="2" Grid.Row="7" Click="DisplayTile_Click"/>
+            <Button x:Name="DB62" Grid.Column="3" Grid.Row="7" Click="DisplayTile_Click"/>
+            <Button x:Name="DB63" Grid.Column="4" Grid.Row="7" Click="DisplayTile_Click"/>
+            <Button x:Name="DB64" Grid.Column="5" Grid.Row="7" Click="DisplayTile_Click"/>
+            <Button x:Name="DB65" Grid.Column="6" Grid.Row="7" Click="DisplayTile_Click"/>
+            <Button x:Name="DB66" Grid.Column="7" Grid.Row="7" Click="DisplayTile_Click"/>
+            <Button x:Name="DB67" Grid.Column="8" Grid.Row="7" Click="DisplayTile_Click"/>
+            <Button x:Name="DB68" Grid.Column="9" Grid.Row="7" Click="DisplayTile_Click"/>
+            <Button x:Name="DB69" Grid.Column="10" Grid.Row="7" Click="DisplayTile_Click"/>
+            <Button x:Name="DB70" Grid.Column="1" Grid.Row="8" Click="DisplayTile_Click"/>
+            <Button x:Name="DB71" Grid.Column="2" Grid.Row="8" Click="DisplayTile_Click"/>
+            <Button x:Name="DB72" Grid.Column="3" Grid.Row="8" Click="DisplayTile_Click"/>
+            <Button x:Name="DB73" Grid.Column="4" Grid.Row="8" Click="DisplayTile_Click"/>
+            <Button x:Name="DB74" Grid.Column="5" Grid.Row="8" Click="DisplayTile_Click"/>
+            <Button x:Name="DB75" Grid.Column="6" Grid.Row="8" Click="DisplayTile_Click"/>
+            <Button x:Name="DB76" Grid.Column="7" Grid.Row="8" Click="DisplayTile_Click"/>
+            <Button x:Name="DB77" Grid.Column="8" Grid.Row="8" Click="DisplayTile_Click"/>
+            <Button x:Name="DB78" Grid.Column="9" Grid.Row="8" Click="DisplayTile_Click"/>
+            <Button x:Name="DB79" Grid.Column="10" Grid.Row="8" Click="DisplayTile_Click"/>
+            <Button x:Name="DB80" Grid.Column="1" Grid.Row="9" Click="DisplayTile_Click"/>
+            <Button x:Name="DB81" Grid.Column="2" Grid.Row="9" Click="DisplayTile_Click"/>
+            <Button x:Name="DB82" Grid.Column="3" Grid.Row="9" Click="DisplayTile_Click"/>
+            <Button x:Name="DB83" Grid.Column="4" Grid.Row="9" Click="DisplayTile_Click"/>
+            <Button x:Name="DB84" Grid.Column="5" Grid.Row="9" Click="DisplayTile_Click"/>
+            <Button x:Name="DB85" Grid.Column="6" Grid.Row="9" Click="DisplayTile_Click"/>
+            <Button x:Name="DB86" Grid.Column="7" Grid.Row="9" Click="DisplayTile_Click"/>
+            <Button x:Name="DB87" Grid.Column="8" Grid.Row="9" Click="DisplayTile_Click"/>
+            <Button x:Name="DB88" Grid.Column="9" Grid.Row="9" Click="DisplayTile_Click"/>
+            <Button x:Name="DB89" Grid.Column="10" Grid.Row="9" Click="DisplayTile_Click"/>
+            <Button x:Name="DB90" Grid.Column="1" Grid.Row="10" Click="DisplayTile_Click"/>
+            <Button x:Name="DB91" Grid.Column="2" Grid.Row="10" Click="DisplayTile_Click"/>
+            <Button x:Name="DB92" Grid.Column="3" Grid.Row="10" Click="DisplayTile_Click"/>
+            <Button x:Name="DB93" Grid.Column="4" Grid.Row="10" Click="DisplayTile_Click"/>
+            <Button x:Name="DB94" Grid.Column="5" Grid.Row="10" Click="DisplayTile_Click"/>
+            <Button x:Name="DB95" Grid.Column="6" Grid.Row="10" Click="DisplayTile_Click"/>
+            <Button x:Name="DB96" Grid.Column="7" Grid.Row="10" Click="DisplayTile_Click"/>
+            <Button x:Name="DB97" Grid.Column="8" Grid.Row="10" Click="DisplayTile_Click"/>
+            <Button x:Name="DB98" Grid.Column="9" Grid.Row="10" Click="DisplayTile_Click"/>
+            <Button x:Name="DB99" Grid.Column="10" Grid.Row="10" Click="DisplayTile_Click"/>
         </Grid>
-        <Grid x:Name="HisContainer">
+        <Grid x:Name="PlayContainer">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition />
@@ -198,106 +212,106 @@
                 <RowDefinition />
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <Button x:Name="PB00" Grid.Column="1" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="PB01" Grid.Column="2" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="PB02" Grid.Column="3" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="PB03" Grid.Column="4" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="PB04" Grid.Column="5" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="PB05" Grid.Column="6" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="PB06" Grid.Column="7" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="PB07" Grid.Column="8" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="PB08" Grid.Column="9" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="PB09" Grid.Column="10" Grid.Row="1" Click="PlayTile_Click"/>
-            <Button x:Name="PB10" Grid.Column="1" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="PB11" Grid.Column="2" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="PB12" Grid.Column="3" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="PB13" Grid.Column="4" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="PB14" Grid.Column="5" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="PB15" Grid.Column="6" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="PB16" Grid.Column="7" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="PB17" Grid.Column="8" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="PB18" Grid.Column="9" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="PB19" Grid.Column="10" Grid.Row="2" Click="PlayTile_Click"/>
-            <Button x:Name="PB20" Grid.Column="1" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="PB21" Grid.Column="2" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="PB22" Grid.Column="3" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="PB23" Grid.Column="4" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="PB24" Grid.Column="5" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="PB25" Grid.Column="6" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="PB26" Grid.Column="7" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="PB27" Grid.Column="8" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="PB28" Grid.Column="9" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="PB29" Grid.Column="10" Grid.Row="3" Click="PlayTile_Click"/>
-            <Button x:Name="PB30" Grid.Column="1" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="PB31" Grid.Column="2" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="PB32" Grid.Column="3" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="PB33" Grid.Column="4" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="PB34" Grid.Column="5" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="PB35" Grid.Column="6" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="PB36" Grid.Column="7" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="PB37" Grid.Column="8" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="PB38" Grid.Column="9" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="PB39" Grid.Column="10" Grid.Row="4" Click="PlayTile_Click"/>
-            <Button x:Name="PB40" Grid.Column="1" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="PB41" Grid.Column="2" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="PB42" Grid.Column="3" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="PB43" Grid.Column="4" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="PB44" Grid.Column="5" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="PB45" Grid.Column="6" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="PB46" Grid.Column="7" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="PB47" Grid.Column="8" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="PB48" Grid.Column="9" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="PB49" Grid.Column="10" Grid.Row="5" Click="PlayTile_Click"/>
-            <Button x:Name="PB50" Grid.Column="1" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="PB51" Grid.Column="2" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="PB52" Grid.Column="3" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="PB53" Grid.Column="4" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="PB54" Grid.Column="5" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="PB55" Grid.Column="6" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="PB56" Grid.Column="7" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="PB57" Grid.Column="8" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="PB58" Grid.Column="9" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="PB59" Grid.Column="10" Grid.Row="6" Click="PlayTile_Click"/>
-            <Button x:Name="PB60" Grid.Column="1" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="PB61" Grid.Column="2" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="PB62" Grid.Column="3" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="PB63" Grid.Column="4" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="PB64" Grid.Column="5" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="PB65" Grid.Column="6" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="PB66" Grid.Column="7" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="PB67" Grid.Column="8" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="PB68" Grid.Column="9" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="PB69" Grid.Column="10" Grid.Row="7" Click="PlayTile_Click"/>
-            <Button x:Name="PB70" Grid.Column="1" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="PB71" Grid.Column="2" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="PB72" Grid.Column="3" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="PB73" Grid.Column="4" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="PB74" Grid.Column="5" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="PB75" Grid.Column="6" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="PB76" Grid.Column="7" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="PB77" Grid.Column="8" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="PB78" Grid.Column="9" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="PB79" Grid.Column="10" Grid.Row="8" Click="PlayTile_Click"/>
-            <Button x:Name="PB80" Grid.Column="1" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="PB81" Grid.Column="2" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="PB82" Grid.Column="3" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="PB83" Grid.Column="4" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="PB84" Grid.Column="5" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="PB85" Grid.Column="6" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="PB86" Grid.Column="7" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="PB87" Grid.Column="8" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="PB88" Grid.Column="9" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="PB89" Grid.Column="10" Grid.Row="9" Click="PlayTile_Click"/>
-            <Button x:Name="PB90" Grid.Column="1" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="PB91" Grid.Column="2" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="PB92" Grid.Column="3" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="PB93" Grid.Column="4" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="PB94" Grid.Column="5" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="PB95" Grid.Column="6" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="PB96" Grid.Column="7" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="PB97" Grid.Column="8" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="PB98" Grid.Column="9" Grid.Row="10" Click="PlayTile_Click"/>
-            <Button x:Name="PB99" Grid.Column="10" Grid.Row="10" Click="PlayTile_Click"/>
+            <Button x:Name="PB00" Grid.Column="1" Grid.Row="1" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB01" Grid.Column="2" Grid.Row="1" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB02" Grid.Column="3" Grid.Row="1" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB03" Grid.Column="4" Grid.Row="1" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB04" Grid.Column="5" Grid.Row="1" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB05" Grid.Column="6" Grid.Row="1" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB06" Grid.Column="7" Grid.Row="1" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB07" Grid.Column="8" Grid.Row="1" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB08" Grid.Column="9" Grid.Row="1" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB09" Grid.Column="10" Grid.Row="1" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB10" Grid.Column="1" Grid.Row="2" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB11" Grid.Column="2" Grid.Row="2" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB12" Grid.Column="3" Grid.Row="2" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB13" Grid.Column="4" Grid.Row="2" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB14" Grid.Column="5" Grid.Row="2" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB15" Grid.Column="6" Grid.Row="2" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB16" Grid.Column="7" Grid.Row="2" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB17" Grid.Column="8" Grid.Row="2" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB18" Grid.Column="9" Grid.Row="2" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB19" Grid.Column="10" Grid.Row="2" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB20" Grid.Column="1" Grid.Row="3" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB21" Grid.Column="2" Grid.Row="3" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB22" Grid.Column="3" Grid.Row="3" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB23" Grid.Column="4" Grid.Row="3" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB24" Grid.Column="5" Grid.Row="3" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB25" Grid.Column="6" Grid.Row="3" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB26" Grid.Column="7" Grid.Row="3" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB27" Grid.Column="8" Grid.Row="3" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB28" Grid.Column="9" Grid.Row="3" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB29" Grid.Column="10" Grid.Row="3" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB30" Grid.Column="1" Grid.Row="4" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB31" Grid.Column="2" Grid.Row="4" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB32" Grid.Column="3" Grid.Row="4" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB33" Grid.Column="4" Grid.Row="4" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB34" Grid.Column="5" Grid.Row="4" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB35" Grid.Column="6" Grid.Row="4" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB36" Grid.Column="7" Grid.Row="4" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB37" Grid.Column="8" Grid.Row="4" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB38" Grid.Column="9" Grid.Row="4" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB39" Grid.Column="10" Grid.Row="4" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB40" Grid.Column="1" Grid.Row="5" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB41" Grid.Column="2" Grid.Row="5" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB42" Grid.Column="3" Grid.Row="5" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB43" Grid.Column="4" Grid.Row="5" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB44" Grid.Column="5" Grid.Row="5" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB45" Grid.Column="6" Grid.Row="5" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB46" Grid.Column="7" Grid.Row="5" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB47" Grid.Column="8" Grid.Row="5" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB48" Grid.Column="9" Grid.Row="5" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB49" Grid.Column="10" Grid.Row="5" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB50" Grid.Column="1" Grid.Row="6" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB51" Grid.Column="2" Grid.Row="6" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB52" Grid.Column="3" Grid.Row="6" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB53" Grid.Column="4" Grid.Row="6" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB54" Grid.Column="5" Grid.Row="6" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB55" Grid.Column="6" Grid.Row="6" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB56" Grid.Column="7" Grid.Row="6" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB57" Grid.Column="8" Grid.Row="6" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB58" Grid.Column="9" Grid.Row="6" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB59" Grid.Column="10" Grid.Row="6" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB60" Grid.Column="1" Grid.Row="7" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB61" Grid.Column="2" Grid.Row="7" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB62" Grid.Column="3" Grid.Row="7" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB63" Grid.Column="4" Grid.Row="7" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB64" Grid.Column="5" Grid.Row="7" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB65" Grid.Column="6" Grid.Row="7" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB66" Grid.Column="7" Grid.Row="7" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB67" Grid.Column="8" Grid.Row="7" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB68" Grid.Column="9" Grid.Row="7" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB69" Grid.Column="10" Grid.Row="7" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB70" Grid.Column="1" Grid.Row="8" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB71" Grid.Column="2" Grid.Row="8" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB72" Grid.Column="3" Grid.Row="8" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB73" Grid.Column="4" Grid.Row="8" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB74" Grid.Column="5" Grid.Row="8" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB75" Grid.Column="6" Grid.Row="8" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB76" Grid.Column="7" Grid.Row="8" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB77" Grid.Column="8" Grid.Row="8" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB78" Grid.Column="9" Grid.Row="8" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB79" Grid.Column="10" Grid.Row="8" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB80" Grid.Column="1" Grid.Row="9" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB81" Grid.Column="2" Grid.Row="9" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB82" Grid.Column="3" Grid.Row="9" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB83" Grid.Column="4" Grid.Row="9" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB84" Grid.Column="5" Grid.Row="9" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB85" Grid.Column="6" Grid.Row="9" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB86" Grid.Column="7" Grid.Row="9" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB87" Grid.Column="8" Grid.Row="9" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB88" Grid.Column="9" Grid.Row="9" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB89" Grid.Column="10" Grid.Row="9" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB90" Grid.Column="1" Grid.Row="10" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB91" Grid.Column="2" Grid.Row="10" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB92" Grid.Column="3" Grid.Row="10" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB93" Grid.Column="4" Grid.Row="10" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB94" Grid.Column="5" Grid.Row="10" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB95" Grid.Column="6" Grid.Row="10" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB96" Grid.Column="7" Grid.Row="10" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB97" Grid.Column="8" Grid.Row="10" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB98" Grid.Column="9" Grid.Row="10" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
+            <Button x:Name="PB99" Grid.Column="10" Grid.Row="10" Click="PlayTile_Click" MouseEnter="Mouse_Enter_PlayTile" MouseLeave="Mouse_Exit_PlayTile"/>
             <Label x:Name="ALabelBottom" Content="A" Grid.Column="1" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
             <Label x:Name="BLabelBottom" Content="B" Grid.Column="2" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
             <Label x:Name="CLabelBottom" Content="C" Grid.Column="3" Grid.Row="11" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Center" />
