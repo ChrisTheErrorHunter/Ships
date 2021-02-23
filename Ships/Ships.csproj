@@ -112,10 +112,10 @@
     <Resource Include="Resources\sunkicon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\fireicon.png" />
+    <Resource Include="Resources\shipicon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\shipicon.png" />
+    <Resource Include="Resources\fireicon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\aimicon.png" />
