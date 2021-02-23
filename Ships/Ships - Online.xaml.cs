@@ -81,12 +81,144 @@ namespace Ships
                 {
                     if(row + 3 <= 10)
                     {
+                        if(displayState[(row - 1)*10 + column - 1] == TileState.Unknown &&
+                           displayState[(row) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row + 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row +2) * 10 + column - 1] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row + 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row + 2) * 10 + column - 1] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            clickMode = ClickMode.setThreeSailer;
+                        }
                     }
                 }
                 else
                 {
-                    
+                    if (column + 3 <= 10)
+                    {
+                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row - 1) * 10 + column] == TileState.Unknown &&
+                           displayState[(row - 1) * 10 + column + 1] == TileState.Unknown &&
+                           displayState[(row - 1) * 10 + column + 2] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row - 1) * 10 + column] = TileState.Ally;
+                            displayState[(row - 1) * 10 + column + 1] = TileState.Ally;
+                            displayState[(row - 1) * 10 + column + 2] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            clickMode = ClickMode.setThreeSailer;
+                        }
+                    }
+
                 }
+            }
+            else if(clickMode == ClickMode.setThreeSailer)
+            {
+                int index;
+                if (isVertical)
+                {
+                    if (row + 2 <= 10)
+                    {
+                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row + 1) * 10 + column - 1] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row + 1) * 10 + column - 1] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            setterCounter++;
+                            if(setterCounter > 1)
+                            {
+                                clickMode = ClickMode.setTwoSailer;
+                                setterCounter = 0;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (column + 2 <= 10)
+                    {
+                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row - 1) * 10 + column] == TileState.Unknown &&
+                           displayState[(row - 1) * 10 + column + 1] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row - 1) * 10 + column] = TileState.Ally;
+                            displayState[(row - 1) * 10 + column + 1] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            setterCounter++;
+                            if (setterCounter > 1)
+                            {
+                                clickMode = ClickMode.setTwoSailer;
+                                setterCounter = 0;
+                            }
+                        }
+                    }
+
+                }
+            }
+            else if(clickMode == ClickMode.setTwoSailer)
+            {
+                int index;
+                if (isVertical)
+                {
+                    if (row + 1 <= 10)
+                    {
+                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row) * 10 + column - 1] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row) * 10 + column - 1] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            setterCounter++;
+                            if (setterCounter > 2)
+                            {
+                                clickMode = ClickMode.setOneSailer;
+                                setterCounter = 0;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (column + 1 <= 10)
+                    {
+                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row - 1) * 10 + column] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row - 1) * 10 + column] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            setterCounter++;
+                            if (setterCounter > 2)
+                            {
+                                clickMode = ClickMode.setOneSailer;
+                                setterCounter = 0;
+                            }
+                        }
+                    }
+
+                }
+            }
+            else if(clickMode == ClickMode.setOneSailer)
+            {
+                int index;
+                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            setterCounter++;
+                            if (setterCounter > 3)
+                            {
+                                clickMode = ClickMode.standby;
+                                setterCounter = 0;
+                            }
+                        }
             }
 
         }
@@ -98,7 +230,6 @@ namespace Ships
             else if (state == TileState.Hit) button.Background = fireBrush;
             else if (state == TileState.Sunk) button.Background = sunkBrush;
             else return;
-
         }
 
         private void UpdateDisplayBoard()
