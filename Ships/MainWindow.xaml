@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ships"
         mc:Ignorable="d"
-        Title="Ships - Menu" Height="1000" Width="600">
+        Title="Ships - Menu" Height="315" Width="400">
     <Grid>
-        <Button x:Name="PlayButton" Content="Play" Click="PlayButton_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="TittleLabel" Content="Okręty" FontWeight="Bold" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
+        <Label x:Name="TittleLabel2" Content="LAN Edition" Grid.Row="1" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+        <Label x:Name="IPLabale" Content="Podaj IPv4 przeciwnika w formie xxx.xxx.xxx.xxx" Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" FontSize="13"/>
+        <Button x:Name="HostButton" Content="Hostuj nową grę" Grid.Row="4" Grid.ColumnSpan="2" Click="PlayButton_Click"/>
+        <Button x:Name="JoinButton" Content="Dołącz" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2"/>
+        <TextBox x:Name="IPBOX" Grid.Row="3" Grid.Column="0" FontSize="28" FontWeight="Bold" TextAlignment="Center"/>
     </Grid>
 </Window>
