@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Ships
-{
-    public enum TileState
+{   
+    public enum MessageType
     {
-        Unknown,
-        Hit,
-        Sunk,
-        Ally,
-        Missed
+        nulll,
+        connected,
+        disconnected,
+        hitrequest,
+        response,
+        missedresponse
     }
 }

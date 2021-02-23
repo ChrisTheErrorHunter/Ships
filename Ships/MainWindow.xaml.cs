@@ -25,10 +25,19 @@ namespace Ships
             InitializeComponent();
         }
 
-        private void PlayButton_Click(object sender, RoutedEventArgs e)
+        private void HostButton_Click(object sender, RoutedEventArgs e)
         {
-            Ships___Online playWindows = new Ships___Online();
-            playWindows.Show();
+            MessageBox.Show("Oczekuję na przeciwnika");
+            Ships___Online playWindow = new Ships___Online(true, null);
+            playWindow.Show();
+            Close();
+        }
+
+        private void JoinButton_Click(object sender, RoutedEventArgs e)
+        {
+            Ships___Online playWindow = new Ships___Online(false, IPBOX.Text);
+            playWindow.Show();
+            Close();
         }
     }
 }

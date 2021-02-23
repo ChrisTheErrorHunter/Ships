@@ -62,6 +62,7 @@
                 <RowDefinition />
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
+            <Label x:Name="TopLabel" Content="Oczekiwanie na przeciwnika" Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="6" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <Label x:Name="ALabelTop" Content="A" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
             <Label x:Name="BLabelTop" Content="B" Grid.Column="2" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
             <Label x:Name="CLabelTop" Content="C" Grid.Column="3" Grid.Row="0" VerticalAlignment="Bottom" FontSize="16" HorizontalAlignment="Center" />
@@ -333,6 +334,7 @@
             <Label x:Name="EightLabelBottom" Content="8" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
             <Label x:Name="NineLabelBottom" Content="9" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
             <Label x:Name="TenLabelBottom" Content="10" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Label x:Name="BottomLabel" Content="Oczekiwanie na przeciwnika" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="6" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
 
         </Grid>

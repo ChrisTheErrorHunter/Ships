@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Resources;
+using System.Net.Sockets;
+using System.Threading;
 
 namespace Ships
 {
@@ -20,11 +22,17 @@ namespace Ships
     /// </summary>
     public partial class Ships___Online : Window
     {
+        private Socket socket;
+        private TcpListener server = null;
+        private TcpClient client;
+        private MessageEncryptor encryptor = new MessageEncryptor();
+        private MessageEncryptor encryptorContainer = new MessageEncryptor();
         private ClickMode clickMode = new ClickMode();
         private TileState[] displayState = new TileState[100];
         private TileState[] playState = new TileState[100];
         private int setterCounter = 0;
         private bool isVertical = false;
+        private bool turn;
         private ImageBrush waterBrush = new ImageBrush();
         private ImageBrush fireBrush = new ImageBrush();
         private ImageBrush shipBrush = new ImageBrush();
@@ -41,15 +49,75 @@ namespace Ships
         private Ship Ship11 = new Ship(1, 11);
         private Ship Ship12 = new Ship(1, 12);
         private Ship Ship13 = new Ship(1, 13);
+        private Ship EnemyShip40 = new Ship(4, 40);
+        private Ship EnemyShip30 = new Ship(3, 30);
+        private Ship EnemyShip31 = new Ship(3, 31);
+        private Ship EnemyShip20 = new Ship(2, 20);
+        private Ship EnemyShip21 = new Ship(2, 21);
+        private Ship EnemyShip22 = new Ship(2, 22);
+        private Ship EnemyShip10 = new Ship(1, 10);
+        private Ship EnemyShip11 = new Ship(1, 11);
+        private Ship EnemyShip12 = new Ship(1, 12);
+        private Ship EnemyShip13 = new Ship(1, 13);
 
-        public Ships___Online()
+        public Ships___Online() { }
+        public Ships___Online(bool isHsot, string Ipv4)
         {
             InitializeComponent();
             InitializeBrushes();
+            if(isHsot)
+            {
+                server = new TcpListener(System.Net.IPAddress.Any, 6969);
+                server.Start();
+                socket = server.AcceptSocket();
+                turn = false;
+            }
+            else
+            {
+                try
+                {
+                    client = new TcpClient(Ipv4, 6969);
+                    socket = client.Client;
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    Close();
+                }
+                turn = true;
+                encryptor.mesType = MessageType.connected;
+                Sender();
+            }
             NewGame();
+            new Thread(() =>
+            {
+                while (true)
+                {
+                    Listiner();
+                }
+            }).Start();
+        }
+
+        private void RunByDispatcher(Action methodeName)
+        {
+            ThreadStart methode = new ThreadStart(methodeName);
+            this.Dispatcher.BeginInvoke(methode);
+        }
+        private void Listiner()
+        {
+            byte[] buffer = new Byte[4];
+            socket.Receive(buffer);
+            encryptor.Decrypt(buffer);
+            //if (encryptor.mesType == MessageType.connected) TopLabel.Content = "Ustaw swoje statki!";
 
         }
 
+        private void Sender()
+        {
+            byte[] buffer = new Byte[4];
+            buffer = encryptor.Encrypt();
+            socket.Send(buffer);
+        }
         private void InitializeBrushes()
         {
             Uri resourceUri = new Uri("Resources/watericon.png", UriKind.Relative);

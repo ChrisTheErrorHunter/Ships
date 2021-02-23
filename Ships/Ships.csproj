@@ -57,6 +57,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ClickMode.cs" />
+    <Compile Include="MessageEncryptor.cs" />
+    <Compile Include="MessageType.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="Ships - Online.xaml.cs">
       <DependentUpon>Ships - Online.xaml</DependentUpon>

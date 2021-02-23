@@ -21,8 +21,8 @@
         <Label x:Name="TittleLabel" Content="Okręty" FontWeight="Bold" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
         <Label x:Name="TittleLabel2" Content="LAN Edition" Grid.Row="1" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
         <Label x:Name="IPLabale" Content="Podaj IPv4 przeciwnika w formie xxx.xxx.xxx.xxx" Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" FontSize="13"/>
-        <Button x:Name="HostButton" Content="Hostuj nową grę" Grid.Row="4" Grid.ColumnSpan="2" Click="PlayButton_Click"/>
-        <Button x:Name="JoinButton" Content="Dołącz" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2"/>
+        <Button x:Name="HostButton" Content="Hostuj nową grę" Grid.Row="4" Grid.ColumnSpan="2" Click="HostButton_Click"/>
+        <Button x:Name="JoinButton" Content="Dołącz" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Click="JoinButton_Click"/>
         <TextBox x:Name="IPBOX" Grid.Row="3" Grid.Column="0" FontSize="28" FontWeight="Bold" TextAlignment="Center"/>
     </Grid>
 </Window>
