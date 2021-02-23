@@ -82,6 +82,7 @@
             <Label x:Name="EightLabelTop" Content="8" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
             <Label x:Name="NineLabelTop" Content="9" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
             <Label x:Name="TenLabelTop" Content="10" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
+            <Button x:Name="ChVerticallytyButton" Content="Ustawiaj pionowo" Grid.Column="11" Grid.Row="5" Width="100" Height="60" Grid.RowSpan="2" Click="ChVerticallytyButton_Click" />
             <Button x:Name="DB00" Grid.Column="1" Grid.Row="1" Click="DisplayTile_Click" />
             <Button x:Name="DB01" Grid.Column="2" Grid.Row="1" Click="DisplayTile_Click" />
             <Button x:Name="DB02" Grid.Column="3" Grid.Row="1" Click="DisplayTile_Click"/>
