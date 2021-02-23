@@ -31,6 +31,17 @@ namespace Ships
         private ImageBrush sunkBrush = new ImageBrush();
         private ImageBrush aimBrush = new ImageBrush();
         private ImageBrush currentBrush = new ImageBrush();
+        private Ship Ship40 = new Ship(4, 40);
+        private Ship Ship30 = new Ship(3, 30);
+        private Ship Ship31 = new Ship(3, 31);
+        private Ship Ship20 = new Ship(2, 20);
+        private Ship Ship21 = new Ship(2, 21);
+        private Ship Ship22 = new Ship(2, 22);
+        private Ship Ship10 = new Ship(1, 10);
+        private Ship Ship11 = new Ship(1, 11);
+        private Ship Ship12 = new Ship(1, 12);
+        private Ship Ship13 = new Ship(1, 13);
+
         public Ships___Online()
         {
             InitializeComponent();
@@ -76,7 +87,6 @@ namespace Ships
             var row = Grid.GetRow(button);
             if(clickMode == ClickMode.setFourSailer)
             {
-                int index;
                 if(isVertical)
                 {
                     if(row + 3 <= 10)
@@ -91,6 +101,7 @@ namespace Ships
                             displayState[(row + 1) * 10 + column - 1] = TileState.Ally;
                             displayState[(row + 2) * 10 + column - 1] = TileState.Ally;
                             UpdateDisplayBoard();
+                            Ship40.SetSail(row, column, isVertical);
                             clickMode = ClickMode.setThreeSailer;
                         }
                     }
@@ -109,6 +120,7 @@ namespace Ships
                             displayState[(row - 1) * 10 + column + 1] = TileState.Ally;
                             displayState[(row - 1) * 10 + column + 2] = TileState.Ally;
                             UpdateDisplayBoard();
+                            Ship40.SetSail(row, column, isVertical);
                             clickMode = ClickMode.setThreeSailer;
                         }
                     }
@@ -117,7 +129,6 @@ namespace Ships
             }
             else if(clickMode == ClickMode.setThreeSailer)
             {
-                int index;
                 if (isVertical)
                 {
                     if (row + 2 <= 10)
@@ -130,6 +141,8 @@ namespace Ships
                             displayState[(row) * 10 + column - 1] = TileState.Ally;
                             displayState[(row + 1) * 10 + column - 1] = TileState.Ally;
                             UpdateDisplayBoard();
+                            if (setterCounter == 0) Ship30.SetSail(row, column, isVertical);
+                            else Ship31.SetSail(row, column, isVertical);
                             setterCounter++;
                             if(setterCounter > 1)
                             {
@@ -151,6 +164,8 @@ namespace Ships
                             displayState[(row - 1) * 10 + column] = TileState.Ally;
                             displayState[(row - 1) * 10 + column + 1] = TileState.Ally;
                             UpdateDisplayBoard();
+                            if (setterCounter == 0) Ship30.SetSail(row, column, isVertical);
+                            else Ship31.SetSail(row, column, isVertical);
                             setterCounter++;
                             if (setterCounter > 1)
                             {
@@ -164,7 +179,6 @@ namespace Ships
             }
             else if(clickMode == ClickMode.setTwoSailer)
             {
-                int index;
                 if (isVertical)
                 {
                     if (row + 1 <= 10)
@@ -175,6 +189,9 @@ namespace Ships
                             displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
                             displayState[(row) * 10 + column - 1] = TileState.Ally;
                             UpdateDisplayBoard();
+                            if (setterCounter == 0) Ship20.SetSail(row, column, isVertical);
+                            else if (setterCounter == 1) Ship21.SetSail(row, column, isVertical);
+                            else Ship22.SetSail(row, column, isVertical);
                             setterCounter++;
                             if (setterCounter > 2)
                             {
@@ -194,6 +211,9 @@ namespace Ships
                             displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
                             displayState[(row - 1) * 10 + column] = TileState.Ally;
                             UpdateDisplayBoard();
+                            if (setterCounter == 0) Ship20.SetSail(row, column, isVertical);
+                            else if (setterCounter == 1) Ship21.SetSail(row, column, isVertical);
+                            else Ship22.SetSail(row, column, isVertical);
                             setterCounter++;
                             if (setterCounter > 2)
                             {
@@ -207,12 +227,15 @@ namespace Ships
             }
             else if(clickMode == ClickMode.setOneSailer)
             {
-                int index;
                         if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown)
                         {
                             displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
                             UpdateDisplayBoard();
-                            setterCounter++;
+                    if (setterCounter == 0) Ship10.SetSail(row, column, isVertical);
+                    else if (setterCounter == 1) Ship11.SetSail(row, column, isVertical);
+                    else if (setterCounter == 2) Ship12.SetSail(row, column, isVertical);
+                    else Ship13.SetSail(row, column, isVertical);
+                    setterCounter++;
                             if (setterCounter > 3)
                             {
                                 clickMode = ClickMode.standby;
@@ -225,11 +248,144 @@ namespace Ships
 
         private void ButtonBrusher(TileState state, Button button)
         {
-            if (state == TileState.Unknown) return;
+            if (state == TileState.Unknown) button.Background = waterBrush;
             else if (state == TileState.Ally) button.Background = shipBrush;
             else if (state == TileState.Hit) button.Background = fireBrush;
             else if (state == TileState.Sunk) button.Background = sunkBrush;
             else return;
+        }
+
+        private void Mouse_Enter_DisplayTile(object sender, RoutedEventArgs e)
+        {
+            if (clickMode == ClickMode.shoot) return;
+            var button = (Button)sender;
+            var column = Grid.GetColumn(button);
+            var row = Grid.GetRow(button);
+            TileState[] tmp = new TileState[100];
+            displayState.CopyTo(tmp, 0);
+            if (clickMode == ClickMode.setFourSailer)
+            {
+                displayState.CopyTo(tmp, 0);
+                if (isVertical)
+                {
+                    if (row + 3 <= 10)
+                    {
+                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row + 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row + 2) * 10 + column - 1] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row + 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row + 2) * 10 + column - 1] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            tmp.CopyTo(displayState, 0);
+                        }
+                    }
+                }
+                else
+                {
+                    if (column + 3 <= 10)
+                    {
+                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row - 1) * 10 + column] == TileState.Unknown &&
+                           displayState[(row - 1) * 10 + column + 1] == TileState.Unknown &&
+                           displayState[(row - 1) * 10 + column + 2] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row - 1) * 10 + column] = TileState.Ally;
+                            displayState[(row - 1) * 10 + column + 1] = TileState.Ally;
+                            displayState[(row - 1) * 10 + column + 2] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            tmp.CopyTo(displayState, 0);
+                        }
+                    }
+
+                }
+            }
+            else if (clickMode == ClickMode.setThreeSailer)
+            {
+                if (isVertical)
+                {
+                    if (row + 2 <= 10)
+                    {
+                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row + 1) * 10 + column - 1] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row + 1) * 10 + column - 1] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            tmp.CopyTo(displayState, 0);
+                        }
+                    }
+                }
+                else
+                {
+                    if (column + 2 <= 10)
+                    {
+                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row - 1) * 10 + column] == TileState.Unknown &&
+                           displayState[(row - 1) * 10 + column + 1] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row - 1) * 10 + column] = TileState.Ally;
+                            displayState[(row - 1) * 10 + column + 1] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            tmp.CopyTo(displayState, 0);
+                        }
+                    }
+
+                }
+            }
+            else if (clickMode == ClickMode.setTwoSailer)
+            {
+                if (isVertical)
+                {
+                    if (row + 1 <= 10)
+                    {
+                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row) * 10 + column - 1] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row) * 10 + column - 1] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            tmp.CopyTo(displayState, 0);
+                        }
+                    }
+                }
+                else
+                {
+                    if (column + 1 <= 10)
+                    {
+                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown &&
+                           displayState[(row - 1) * 10 + column] == TileState.Unknown)
+                        {
+                            displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                            displayState[(row - 1) * 10 + column] = TileState.Ally;
+                            UpdateDisplayBoard();
+                            tmp.CopyTo(displayState, 0);
+                        }
+                    }
+
+                }
+            }
+            else if (clickMode == ClickMode.setOneSailer)
+            {
+                if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown)
+                {
+                    displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
+                    UpdateDisplayBoard();
+                    displayState[(row - 1) * 10 + column - 1] = TileState.Unknown;
+                }
+            }
+        }
+
+        private void Mouse_Exit_DisplayTile(object sender, RoutedEventArgs e)
+        {
+            UpdateDisplayBoard();
         }
 
         private void UpdateDisplayBoard()
@@ -461,7 +617,7 @@ namespace Ships
             currentBrush = (ImageBrush)button.Background;
             var column = Grid.GetColumn(button);
             var row = Grid.GetRow(button);
-            var index = column + (row * 10);
+            var index = (row - 1) * 10 + (column - 1);
             button.Background = aimBrush;
           //  button.Background = currentBrush;
         }
@@ -492,5 +648,6 @@ namespace Ships
             DB06.Background = aimBrush;*/
 
         }
+
     }
 }

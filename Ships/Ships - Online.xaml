@@ -83,106 +83,106 @@
             <Label x:Name="NineLabelTop" Content="9" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
             <Label x:Name="TenLabelTop" Content="10" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" />
             <Button x:Name="ChVerticallytyButton" Content="Ustawiaj pionowo" Grid.Column="11" Grid.Row="5" Width="100" Height="60" Grid.RowSpan="2" Click="ChVerticallytyButton_Click" />
-            <Button x:Name="DB00" Grid.Column="1" Grid.Row="1" Click="DisplayTile_Click" />
-            <Button x:Name="DB01" Grid.Column="2" Grid.Row="1" Click="DisplayTile_Click" />
-            <Button x:Name="DB02" Grid.Column="3" Grid.Row="1" Click="DisplayTile_Click"/>
-            <Button x:Name="DB03" Grid.Column="4" Grid.Row="1" Click="DisplayTile_Click"/>
-            <Button x:Name="DB04" Grid.Column="5" Grid.Row="1" Click="DisplayTile_Click"/>
-            <Button x:Name="DB05" Grid.Column="6" Grid.Row="1" Click="DisplayTile_Click"/>
-            <Button x:Name="DB06" Grid.Column="7" Grid.Row="1" Click="DisplayTile_Click"/>
-            <Button x:Name="DB07" Grid.Column="8" Grid.Row="1" Click="DisplayTile_Click"/>
-            <Button x:Name="DB08" Grid.Column="9" Grid.Row="1" Click="DisplayTile_Click"/>
-            <Button x:Name="DB09" Grid.Column="10" Grid.Row="1" Click="DisplayTile_Click"/>
-            <Button x:Name="DB10" Grid.Column="1" Grid.Row="2" Click="DisplayTile_Click"/>
-            <Button x:Name="DB11" Grid.Column="2" Grid.Row="2" Click="DisplayTile_Click"/>
-            <Button x:Name="DB12" Grid.Column="3" Grid.Row="2" Click="DisplayTile_Click"/>
-            <Button x:Name="DB13" Grid.Column="4" Grid.Row="2" Click="DisplayTile_Click"/>
-            <Button x:Name="DB14" Grid.Column="5" Grid.Row="2" Click="DisplayTile_Click"/>
-            <Button x:Name="DB15" Grid.Column="6" Grid.Row="2" Click="DisplayTile_Click"/>
-            <Button x:Name="DB16" Grid.Column="7" Grid.Row="2" Click="DisplayTile_Click"/>
-            <Button x:Name="DB17" Grid.Column="8" Grid.Row="2" Click="DisplayTile_Click"/>
-            <Button x:Name="DB18" Grid.Column="9" Grid.Row="2" Click="DisplayTile_Click"/>
-            <Button x:Name="DB19" Grid.Column="10" Grid.Row="2" Click="DisplayTile_Click"/>
-            <Button x:Name="DB20" Grid.Column="1" Grid.Row="3" Click="DisplayTile_Click"/>
-            <Button x:Name="DB21" Grid.Column="2" Grid.Row="3" Click="DisplayTile_Click"/>
-            <Button x:Name="DB22" Grid.Column="3" Grid.Row="3" Click="DisplayTile_Click"/>
-            <Button x:Name="DB23" Grid.Column="4" Grid.Row="3" Click="DisplayTile_Click"/>
-            <Button x:Name="DB24" Grid.Column="5" Grid.Row="3" Click="DisplayTile_Click"/>
-            <Button x:Name="DB25" Grid.Column="6" Grid.Row="3" Click="DisplayTile_Click"/>
-            <Button x:Name="DB26" Grid.Column="7" Grid.Row="3" Click="DisplayTile_Click"/>
-            <Button x:Name="DB27" Grid.Column="8" Grid.Row="3" Click="DisplayTile_Click"/>
-            <Button x:Name="DB28" Grid.Column="9" Grid.Row="3" Click="DisplayTile_Click"/>
-            <Button x:Name="DB29" Grid.Column="10" Grid.Row="3" Click="DisplayTile_Click"/>
-            <Button x:Name="DB30" Grid.Column="1" Grid.Row="4" Click="DisplayTile_Click"/>
-            <Button x:Name="DB31" Grid.Column="2" Grid.Row="4" Click="DisplayTile_Click"/>
-            <Button x:Name="DB32" Grid.Column="3" Grid.Row="4" Click="DisplayTile_Click"/>
-            <Button x:Name="DB33" Grid.Column="4" Grid.Row="4" Click="DisplayTile_Click"/>
-            <Button x:Name="DB34" Grid.Column="5" Grid.Row="4" Click="DisplayTile_Click"/>
-            <Button x:Name="DB35" Grid.Column="6" Grid.Row="4" Click="DisplayTile_Click"/>
-            <Button x:Name="DB36" Grid.Column="7" Grid.Row="4" Click="DisplayTile_Click"/>
-            <Button x:Name="DB37" Grid.Column="8" Grid.Row="4" Click="DisplayTile_Click"/>
-            <Button x:Name="DB38" Grid.Column="9" Grid.Row="4" Click="DisplayTile_Click"/>
-            <Button x:Name="DB39" Grid.Column="10" Grid.Row="4" Click="DisplayTile_Click"/>
-            <Button x:Name="DB40" Grid.Column="1" Grid.Row="5" Click="DisplayTile_Click"/>
-            <Button x:Name="DB41" Grid.Column="2" Grid.Row="5" Click="DisplayTile_Click"/>
-            <Button x:Name="DB42" Grid.Column="3" Grid.Row="5" Click="DisplayTile_Click"/>
-            <Button x:Name="DB43" Grid.Column="4" Grid.Row="5" Click="DisplayTile_Click"/>
-            <Button x:Name="DB44" Grid.Column="5" Grid.Row="5" Click="DisplayTile_Click"/>
-            <Button x:Name="DB45" Grid.Column="6" Grid.Row="5" Click="DisplayTile_Click"/>
-            <Button x:Name="DB46" Grid.Column="7" Grid.Row="5" Click="DisplayTile_Click"/>
-            <Button x:Name="DB47" Grid.Column="8" Grid.Row="5" Click="DisplayTile_Click"/>
-            <Button x:Name="DB48" Grid.Column="9" Grid.Row="5" Click="DisplayTile_Click"/>
-            <Button x:Name="DB49" Grid.Column="10" Grid.Row="5" Click="DisplayTile_Click"/>
-            <Button x:Name="DB50" Grid.Column="1" Grid.Row="6" Click="DisplayTile_Click"/>
-            <Button x:Name="DB51" Grid.Column="2" Grid.Row="6" Click="DisplayTile_Click"/>
-            <Button x:Name="DB52" Grid.Column="3" Grid.Row="6" Click="DisplayTile_Click"/>
-            <Button x:Name="DB53" Grid.Column="4" Grid.Row="6" Click="DisplayTile_Click"/>
-            <Button x:Name="DB54" Grid.Column="5" Grid.Row="6" Click="DisplayTile_Click"/>
-            <Button x:Name="DB55" Grid.Column="6" Grid.Row="6" Click="DisplayTile_Click"/>
-            <Button x:Name="DB56" Grid.Column="7" Grid.Row="6" Click="DisplayTile_Click"/>
-            <Button x:Name="DB57" Grid.Column="8" Grid.Row="6" Click="DisplayTile_Click"/>
-            <Button x:Name="DB58" Grid.Column="9" Grid.Row="6" Click="DisplayTile_Click"/>
-            <Button x:Name="DB59" Grid.Column="10" Grid.Row="6" Click="DisplayTile_Click"/>
-            <Button x:Name="DB60" Grid.Column="1" Grid.Row="7" Click="DisplayTile_Click"/>
-            <Button x:Name="DB61" Grid.Column="2" Grid.Row="7" Click="DisplayTile_Click"/>
-            <Button x:Name="DB62" Grid.Column="3" Grid.Row="7" Click="DisplayTile_Click"/>
-            <Button x:Name="DB63" Grid.Column="4" Grid.Row="7" Click="DisplayTile_Click"/>
-            <Button x:Name="DB64" Grid.Column="5" Grid.Row="7" Click="DisplayTile_Click"/>
-            <Button x:Name="DB65" Grid.Column="6" Grid.Row="7" Click="DisplayTile_Click"/>
-            <Button x:Name="DB66" Grid.Column="7" Grid.Row="7" Click="DisplayTile_Click"/>
-            <Button x:Name="DB67" Grid.Column="8" Grid.Row="7" Click="DisplayTile_Click"/>
-            <Button x:Name="DB68" Grid.Column="9" Grid.Row="7" Click="DisplayTile_Click"/>
-            <Button x:Name="DB69" Grid.Column="10" Grid.Row="7" Click="DisplayTile_Click"/>
-            <Button x:Name="DB70" Grid.Column="1" Grid.Row="8" Click="DisplayTile_Click"/>
-            <Button x:Name="DB71" Grid.Column="2" Grid.Row="8" Click="DisplayTile_Click"/>
-            <Button x:Name="DB72" Grid.Column="3" Grid.Row="8" Click="DisplayTile_Click"/>
-            <Button x:Name="DB73" Grid.Column="4" Grid.Row="8" Click="DisplayTile_Click"/>
-            <Button x:Name="DB74" Grid.Column="5" Grid.Row="8" Click="DisplayTile_Click"/>
-            <Button x:Name="DB75" Grid.Column="6" Grid.Row="8" Click="DisplayTile_Click"/>
-            <Button x:Name="DB76" Grid.Column="7" Grid.Row="8" Click="DisplayTile_Click"/>
-            <Button x:Name="DB77" Grid.Column="8" Grid.Row="8" Click="DisplayTile_Click"/>
-            <Button x:Name="DB78" Grid.Column="9" Grid.Row="8" Click="DisplayTile_Click"/>
-            <Button x:Name="DB79" Grid.Column="10" Grid.Row="8" Click="DisplayTile_Click"/>
-            <Button x:Name="DB80" Grid.Column="1" Grid.Row="9" Click="DisplayTile_Click"/>
-            <Button x:Name="DB81" Grid.Column="2" Grid.Row="9" Click="DisplayTile_Click"/>
-            <Button x:Name="DB82" Grid.Column="3" Grid.Row="9" Click="DisplayTile_Click"/>
-            <Button x:Name="DB83" Grid.Column="4" Grid.Row="9" Click="DisplayTile_Click"/>
-            <Button x:Name="DB84" Grid.Column="5" Grid.Row="9" Click="DisplayTile_Click"/>
-            <Button x:Name="DB85" Grid.Column="6" Grid.Row="9" Click="DisplayTile_Click"/>
-            <Button x:Name="DB86" Grid.Column="7" Grid.Row="9" Click="DisplayTile_Click"/>
-            <Button x:Name="DB87" Grid.Column="8" Grid.Row="9" Click="DisplayTile_Click"/>
-            <Button x:Name="DB88" Grid.Column="9" Grid.Row="9" Click="DisplayTile_Click"/>
-            <Button x:Name="DB89" Grid.Column="10" Grid.Row="9" Click="DisplayTile_Click"/>
-            <Button x:Name="DB90" Grid.Column="1" Grid.Row="10" Click="DisplayTile_Click"/>
-            <Button x:Name="DB91" Grid.Column="2" Grid.Row="10" Click="DisplayTile_Click"/>
-            <Button x:Name="DB92" Grid.Column="3" Grid.Row="10" Click="DisplayTile_Click"/>
-            <Button x:Name="DB93" Grid.Column="4" Grid.Row="10" Click="DisplayTile_Click"/>
-            <Button x:Name="DB94" Grid.Column="5" Grid.Row="10" Click="DisplayTile_Click"/>
-            <Button x:Name="DB95" Grid.Column="6" Grid.Row="10" Click="DisplayTile_Click"/>
-            <Button x:Name="DB96" Grid.Column="7" Grid.Row="10" Click="DisplayTile_Click"/>
-            <Button x:Name="DB97" Grid.Column="8" Grid.Row="10" Click="DisplayTile_Click"/>
-            <Button x:Name="DB98" Grid.Column="9" Grid.Row="10" Click="DisplayTile_Click"/>
-            <Button x:Name="DB99" Grid.Column="10" Grid.Row="10" Click="DisplayTile_Click"/>
+            <Button x:Name="DB00" Grid.Column="1" Grid.Row="1" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB01" Grid.Column="2" Grid.Row="1" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB02" Grid.Column="3" Grid.Row="1" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB03" Grid.Column="4" Grid.Row="1" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB04" Grid.Column="5" Grid.Row="1" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB05" Grid.Column="6" Grid.Row="1" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB06" Grid.Column="7" Grid.Row="1" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB07" Grid.Column="8" Grid.Row="1" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB08" Grid.Column="9" Grid.Row="1" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB09" Grid.Column="10" Grid.Row="1" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB10" Grid.Column="1" Grid.Row="2" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB11" Grid.Column="2" Grid.Row="2" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB12" Grid.Column="3" Grid.Row="2" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB13" Grid.Column="4" Grid.Row="2" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB14" Grid.Column="5" Grid.Row="2" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB15" Grid.Column="6" Grid.Row="2" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB16" Grid.Column="7" Grid.Row="2" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB17" Grid.Column="8" Grid.Row="2" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB18" Grid.Column="9" Grid.Row="2" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB19" Grid.Column="10" Grid.Row="2" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB20" Grid.Column="1" Grid.Row="3" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB21" Grid.Column="2" Grid.Row="3" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB22" Grid.Column="3" Grid.Row="3" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB23" Grid.Column="4" Grid.Row="3" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB24" Grid.Column="5" Grid.Row="3" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB25" Grid.Column="6" Grid.Row="3" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB26" Grid.Column="7" Grid.Row="3" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB27" Grid.Column="8" Grid.Row="3" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB28" Grid.Column="9" Grid.Row="3" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB29" Grid.Column="10" Grid.Row="3" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB30" Grid.Column="1" Grid.Row="4" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB31" Grid.Column="2" Grid.Row="4" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB32" Grid.Column="3" Grid.Row="4" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB33" Grid.Column="4" Grid.Row="4" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB34" Grid.Column="5" Grid.Row="4" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB35" Grid.Column="6" Grid.Row="4" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB36" Grid.Column="7" Grid.Row="4" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB37" Grid.Column="8" Grid.Row="4" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB38" Grid.Column="9" Grid.Row="4" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB39" Grid.Column="10" Grid.Row="4" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB40" Grid.Column="1" Grid.Row="5" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB41" Grid.Column="2" Grid.Row="5" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB42" Grid.Column="3" Grid.Row="5" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB43" Grid.Column="4" Grid.Row="5" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB44" Grid.Column="5" Grid.Row="5" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB45" Grid.Column="6" Grid.Row="5" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB46" Grid.Column="7" Grid.Row="5" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB47" Grid.Column="8" Grid.Row="5" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB48" Grid.Column="9" Grid.Row="5" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB49" Grid.Column="10" Grid.Row="5" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB50" Grid.Column="1" Grid.Row="6" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB51" Grid.Column="2" Grid.Row="6" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB52" Grid.Column="3" Grid.Row="6" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB53" Grid.Column="4" Grid.Row="6" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB54" Grid.Column="5" Grid.Row="6" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB55" Grid.Column="6" Grid.Row="6" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB56" Grid.Column="7" Grid.Row="6" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB57" Grid.Column="8" Grid.Row="6" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB58" Grid.Column="9" Grid.Row="6" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB59" Grid.Column="10" Grid.Row="6" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB60" Grid.Column="1" Grid.Row="7" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB61" Grid.Column="2" Grid.Row="7" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB62" Grid.Column="3" Grid.Row="7" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB63" Grid.Column="4" Grid.Row="7" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB64" Grid.Column="5" Grid.Row="7" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB65" Grid.Column="6" Grid.Row="7" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB66" Grid.Column="7" Grid.Row="7" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB67" Grid.Column="8" Grid.Row="7" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB68" Grid.Column="9" Grid.Row="7" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB69" Grid.Column="10" Grid.Row="7" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB70" Grid.Column="1" Grid.Row="8" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB71" Grid.Column="2" Grid.Row="8" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB72" Grid.Column="3" Grid.Row="8" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB73" Grid.Column="4" Grid.Row="8" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB74" Grid.Column="5" Grid.Row="8" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB75" Grid.Column="6" Grid.Row="8" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB76" Grid.Column="7" Grid.Row="8" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB77" Grid.Column="8" Grid.Row="8" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB78" Grid.Column="9" Grid.Row="8" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB79" Grid.Column="10" Grid.Row="8" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB80" Grid.Column="1" Grid.Row="9" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB81" Grid.Column="2" Grid.Row="9" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB82" Grid.Column="3" Grid.Row="9" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB83" Grid.Column="4" Grid.Row="9" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB84" Grid.Column="5" Grid.Row="9" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB85" Grid.Column="6" Grid.Row="9" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB86" Grid.Column="7" Grid.Row="9" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB87" Grid.Column="8" Grid.Row="9" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB88" Grid.Column="9" Grid.Row="9" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB89" Grid.Column="10" Grid.Row="9" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB90" Grid.Column="1" Grid.Row="10" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB91" Grid.Column="2" Grid.Row="10" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB92" Grid.Column="3" Grid.Row="10" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB93" Grid.Column="4" Grid.Row="10" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB94" Grid.Column="5" Grid.Row="10" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB95" Grid.Column="6" Grid.Row="10" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB96" Grid.Column="7" Grid.Row="10" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB97" Grid.Column="8" Grid.Row="10" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB98" Grid.Column="9" Grid.Row="10" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
+            <Button x:Name="DB99" Grid.Column="10" Grid.Row="10" Click="DisplayTile_Click" MouseEnter="Mouse_Enter_DisplayTile" MouseLeave="Mouse_Exit_DisplayTile"/>
         </Grid>
         <Grid x:Name="PlayContainer">
             <Grid.ColumnDefinitions>
