@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ships
+namespace ShipsClassLib
 {
-    public enum ClickMode
+    public enum MouseMode
     {
         setFourSailer,
         setThreeSailer,

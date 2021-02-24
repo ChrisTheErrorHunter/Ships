@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Windows.Resources;
 using System.Net.Sockets;
 using System.Threading;
+using ShipsClassLib;
 
 namespace Ships
 {
@@ -27,12 +28,13 @@ namespace Ships
         private TcpClient client;
         private MessageEncryptor encryptor = new MessageEncryptor();
         private MessageEncryptor encryptorContainer = new MessageEncryptor();
-        private ClickMode clickMode = new ClickMode();
+        private MouseMode MouseMode = new MouseMode();
         private TileState[] displayState = new TileState[100];
         private TileState[] playState = new TileState[100];
         private int setterCounter = 0;
         private bool isVertical = false;
         private bool turn;
+        private string tmptxt;
         private ImageBrush waterBrush = new ImageBrush();
         private ImageBrush fireBrush = new ImageBrush();
         private ImageBrush shipBrush = new ImageBrush();
@@ -98,17 +100,17 @@ namespace Ships
             }).Start();
         }
 
-        private void RunByDispatcher(Action methodeName)
-        {
-            ThreadStart methode = new ThreadStart(methodeName);
-            this.Dispatcher.BeginInvoke(methode);
-        }
+        
         private void Listiner()
         {
             byte[] buffer = new Byte[4];
             socket.Receive(buffer);
             encryptor.Decrypt(buffer);
-            //if (encryptor.mesType == MessageType.connected) TopLabel.Content = "Ustaw swoje statki!";
+            if (encryptor.mesType == MessageType.connected)
+            {
+                tmptxt = "Ustaw swoje statki!";
+                RunByDispatcher(ChTopLabel);
+            }
 
         }
 
@@ -149,11 +151,11 @@ namespace Ships
 
         private void DisplayTile_Click(object sender, RoutedEventArgs e)
         {
-            if (clickMode == ClickMode.shoot) return;
+            if (MouseMode == MouseMode.shoot || MouseMode == MouseMode.standby) return;
             var button = (Button)sender;
             var column = Grid.GetColumn(button);
             var row = Grid.GetRow(button);
-            if(clickMode == ClickMode.setFourSailer)
+            if(MouseMode == MouseMode.setFourSailer)
             {
                 if(isVertical)
                 {
@@ -170,7 +172,7 @@ namespace Ships
                             displayState[(row + 2) * 10 + column - 1] = TileState.Ally;
                             UpdateDisplayBoard();
                             Ship40.SetSail(row, column, isVertical);
-                            clickMode = ClickMode.setThreeSailer;
+                            MouseMode = MouseMode.setThreeSailer;
                         }
                     }
                 }
@@ -189,13 +191,13 @@ namespace Ships
                             displayState[(row - 1) * 10 + column + 2] = TileState.Ally;
                             UpdateDisplayBoard();
                             Ship40.SetSail(row, column, isVertical);
-                            clickMode = ClickMode.setThreeSailer;
+                            MouseMode = MouseMode.setThreeSailer;
                         }
                     }
 
                 }
             }
-            else if(clickMode == ClickMode.setThreeSailer)
+            else if(MouseMode == MouseMode.setThreeSailer)
             {
                 if (isVertical)
                 {
@@ -214,7 +216,7 @@ namespace Ships
                             setterCounter++;
                             if(setterCounter > 1)
                             {
-                                clickMode = ClickMode.setTwoSailer;
+                                MouseMode = MouseMode.setTwoSailer;
                                 setterCounter = 0;
                             }
                         }
@@ -237,7 +239,7 @@ namespace Ships
                             setterCounter++;
                             if (setterCounter > 1)
                             {
-                                clickMode = ClickMode.setTwoSailer;
+                                MouseMode = MouseMode.setTwoSailer;
                                 setterCounter = 0;
                             }
                         }
@@ -245,7 +247,7 @@ namespace Ships
 
                 }
             }
-            else if(clickMode == ClickMode.setTwoSailer)
+            else if(MouseMode == MouseMode.setTwoSailer)
             {
                 if (isVertical)
                 {
@@ -263,7 +265,7 @@ namespace Ships
                             setterCounter++;
                             if (setterCounter > 2)
                             {
-                                clickMode = ClickMode.setOneSailer;
+                                MouseMode = MouseMode.setOneSailer;
                                 setterCounter = 0;
                             }
                         }
@@ -285,7 +287,7 @@ namespace Ships
                             setterCounter++;
                             if (setterCounter > 2)
                             {
-                                clickMode = ClickMode.setOneSailer;
+                                MouseMode = MouseMode.setOneSailer;
                                 setterCounter = 0;
                             }
                         }
@@ -293,7 +295,7 @@ namespace Ships
 
                 }
             }
-            else if(clickMode == ClickMode.setOneSailer)
+            else if(MouseMode == MouseMode.setOneSailer)
             {
                         if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown)
                         {
@@ -306,7 +308,7 @@ namespace Ships
                     setterCounter++;
                             if (setterCounter > 3)
                             {
-                                clickMode = ClickMode.standby;
+                                MouseMode = MouseMode.standby;
                                 setterCounter = 0;
                             }
                         }
@@ -325,13 +327,13 @@ namespace Ships
 
         private void Mouse_Enter_DisplayTile(object sender, RoutedEventArgs e)
         {
-            if (clickMode == ClickMode.shoot) return;
+            if (MouseMode == MouseMode.shoot || MouseMode == MouseMode.standby) return;
             var button = (Button)sender;
             var column = Grid.GetColumn(button);
             var row = Grid.GetRow(button);
             TileState[] tmp = new TileState[100];
             displayState.CopyTo(tmp, 0);
-            if (clickMode == ClickMode.setFourSailer)
+            if (MouseMode == MouseMode.setFourSailer)
             {
                 displayState.CopyTo(tmp, 0);
                 if (isVertical)
@@ -372,7 +374,7 @@ namespace Ships
 
                 }
             }
-            else if (clickMode == ClickMode.setThreeSailer)
+            else if (MouseMode == MouseMode.setThreeSailer)
             {
                 if (isVertical)
                 {
@@ -408,7 +410,7 @@ namespace Ships
 
                 }
             }
-            else if (clickMode == ClickMode.setTwoSailer)
+            else if (MouseMode == MouseMode.setTwoSailer)
             {
                 if (isVertical)
                 {
@@ -440,7 +442,7 @@ namespace Ships
 
                 }
             }
-            else if (clickMode == ClickMode.setOneSailer)
+            else if (MouseMode == MouseMode.setOneSailer)
             {
                 if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown)
                 {
@@ -708,13 +710,23 @@ namespace Ships
             {
                 if(button is Button) button.Background = waterBrush;
             });
-            clickMode = ClickMode.setFourSailer;
+            MouseMode = MouseMode.setFourSailer;
             /*DB02.Background = waterBrush;
             DB03.Background = sunkBrush;
             DB04.Background = fireBrush;
             DB05.Background = shipBrush;
             DB06.Background = aimBrush;*/
 
+        }
+        private void RunByDispatcher(Action methodeName)
+        {
+            ThreadStart methode = new ThreadStart(methodeName);
+            this.Dispatcher.BeginInvoke(methode);
+        }
+
+        private void ChTopLabel()
+        {
+            TopLabel.Content = tmptxt;
         }
 
     }

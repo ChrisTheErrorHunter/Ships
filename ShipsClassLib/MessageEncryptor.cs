@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ships
+namespace ShipsClassLib
 {
-    class MessageEncryptor
+    public class MessageEncryptor
     {
         public MessageType mesType;
         public int row, column;
@@ -22,7 +22,7 @@ namespace Ships
             this.shipSize = SHIPSIZE;
             this.isVertical = ISVERTICAL;
         }
-        
+
         public void Decrypt(byte[] cryptogram)
         {
             int tmp, message;
@@ -62,10 +62,10 @@ namespace Ships
             wynik *= 10;
             wynik += column;
             if (mesType == MessageType.connected) wynik++;
-            if (mesType == MessageType.disconnected) wynik+=2;
-            if (mesType == MessageType.hitrequest) wynik+=3;
-            if (mesType == MessageType.response) wynik+=4;
-            if (mesType == MessageType.missedresponse) wynik+=5;
+            if (mesType == MessageType.disconnected) wynik += 2;
+            if (mesType == MessageType.hitrequest) wynik += 3;
+            if (mesType == MessageType.response) wynik += 4;
+            if (mesType == MessageType.missedresponse) wynik += 5;
             message = BitConverter.GetBytes(wynik);
             return message;
         }

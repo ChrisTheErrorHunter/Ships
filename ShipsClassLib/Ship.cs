@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ships
+namespace ShipsClassLib
 {
-    class Ship
+    public class Ship
     {
         int shipID = 0;
         int size = 0;
