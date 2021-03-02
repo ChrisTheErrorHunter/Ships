@@ -13,6 +13,7 @@ namespace ShipsClassLib
             disconnected,
             hitrequest,
             response,
-            missedresponse
+            missedresponse,
+            ready
         }
 }

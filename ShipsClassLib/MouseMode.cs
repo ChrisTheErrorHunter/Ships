@@ -13,6 +13,7 @@ namespace ShipsClassLib
         setTwoSailer,
         setOneSailer,
         shoot,
-        standby
+        standby,
+        notready
     }
 }

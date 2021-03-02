@@ -23,6 +23,11 @@ namespace ShipsClassLib
             this.isVertical = ISVERTICAL;
         }
 
+        public void setType(MessageType t)
+        {
+            this.mesType = t;
+        }
+
         public void Decrypt(byte[] cryptogram)
         {
             int tmp, message;
@@ -35,6 +40,7 @@ namespace ShipsClassLib
             else if (tmp == 3) this.mesType = MessageType.hitrequest;
             else if (tmp == 4) this.mesType = MessageType.response;
             else if (tmp == 5) this.mesType = MessageType.missedresponse;
+            else if (tmp == 6) this.mesType = MessageType.ready;
             tmp = message % 10;
             message /= 10;
             this.column = tmp;
@@ -66,6 +72,7 @@ namespace ShipsClassLib
             if (mesType == MessageType.hitrequest) wynik += 3;
             if (mesType == MessageType.response) wynik += 4;
             if (mesType == MessageType.missedresponse) wynik += 5;
+            if (mesType == MessageType.missedresponse) wynik += 6;
             message = BitConverter.GetBytes(wynik);
             return message;
         }

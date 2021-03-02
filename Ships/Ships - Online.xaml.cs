@@ -28,12 +28,13 @@ namespace Ships
         private TcpClient client;
         private MessageEncryptor encryptor = new MessageEncryptor();
         private MessageEncryptor encryptorContainer = new MessageEncryptor();
-        private MouseMode MouseMode = new MouseMode();
+        private MouseMode mouseMode = new MouseMode();
         private TileState[] displayState = new TileState[100];
         private TileState[] playState = new TileState[100];
         private int setterCounter = 0;
         private bool isVertical = false;
         private bool turn;
+        private bool opponentReady = false;
         private string tmptxt;
         private ImageBrush waterBrush = new ImageBrush();
         private ImageBrush fireBrush = new ImageBrush();
@@ -106,10 +107,17 @@ namespace Ships
             byte[] buffer = new Byte[4];
             socket.Receive(buffer);
             encryptor.Decrypt(buffer);
+            //MessageBox.Show("1");
             if (encryptor.mesType == MessageType.connected)
             {
                 tmptxt = "Ustaw swoje statki!";
                 RunByDispatcher(ChTopLabel);
+            }
+            else if (encryptor.mesType == MessageType.ready)
+            {
+                MessageBox.Show("Opponent ready");
+                opponentReady = true;
+                if (mouseMode == MouseMode.standby) mouseMode = MouseMode.shoot;
             }
 
         }
@@ -146,16 +154,23 @@ namespace Ships
 
         private void PlayTile_Click(object sender, RoutedEventArgs e)
         {
-
+            if (mouseMode == MouseMode.standby) return;
+            if(mouseMode == MouseMode.shoot)
+            {
+                var button = (Button)sender;
+                var row = Grid.GetRow(button);
+                var column = Grid.GetColumn(button);
+            }
+            
         }
 
         private void DisplayTile_Click(object sender, RoutedEventArgs e)
         {
-            if (MouseMode == MouseMode.shoot || MouseMode == MouseMode.standby) return;
+            if (mouseMode == MouseMode.shoot || mouseMode == MouseMode.standby) return;
             var button = (Button)sender;
             var column = Grid.GetColumn(button);
             var row = Grid.GetRow(button);
-            if(MouseMode == MouseMode.setFourSailer)
+            if(mouseMode == MouseMode.setFourSailer)
             {
                 if(isVertical)
                 {
@@ -172,7 +187,7 @@ namespace Ships
                             displayState[(row + 2) * 10 + column - 1] = TileState.Ally;
                             UpdateDisplayBoard();
                             Ship40.SetSail(row, column, isVertical);
-                            MouseMode = MouseMode.setThreeSailer;
+                            mouseMode = MouseMode.setThreeSailer;
                         }
                     }
                 }
@@ -191,13 +206,13 @@ namespace Ships
                             displayState[(row - 1) * 10 + column + 2] = TileState.Ally;
                             UpdateDisplayBoard();
                             Ship40.SetSail(row, column, isVertical);
-                            MouseMode = MouseMode.setThreeSailer;
+                            mouseMode = MouseMode.setThreeSailer;
                         }
                     }
 
                 }
             }
-            else if(MouseMode == MouseMode.setThreeSailer)
+            else if(mouseMode == MouseMode.setThreeSailer)
             {
                 if (isVertical)
                 {
@@ -216,7 +231,7 @@ namespace Ships
                             setterCounter++;
                             if(setterCounter > 1)
                             {
-                                MouseMode = MouseMode.setTwoSailer;
+                                mouseMode = MouseMode.setTwoSailer;
                                 setterCounter = 0;
                             }
                         }
@@ -239,7 +254,7 @@ namespace Ships
                             setterCounter++;
                             if (setterCounter > 1)
                             {
-                                MouseMode = MouseMode.setTwoSailer;
+                                mouseMode = MouseMode.setTwoSailer;
                                 setterCounter = 0;
                             }
                         }
@@ -247,7 +262,7 @@ namespace Ships
 
                 }
             }
-            else if(MouseMode == MouseMode.setTwoSailer)
+            else if(mouseMode == MouseMode.setTwoSailer)
             {
                 if (isVertical)
                 {
@@ -265,7 +280,7 @@ namespace Ships
                             setterCounter++;
                             if (setterCounter > 2)
                             {
-                                MouseMode = MouseMode.setOneSailer;
+                                mouseMode = MouseMode.setOneSailer;
                                 setterCounter = 0;
                             }
                         }
@@ -287,7 +302,7 @@ namespace Ships
                             setterCounter++;
                             if (setterCounter > 2)
                             {
-                                MouseMode = MouseMode.setOneSailer;
+                                mouseMode = MouseMode.setOneSailer;
                                 setterCounter = 0;
                             }
                         }
@@ -295,7 +310,7 @@ namespace Ships
 
                 }
             }
-            else if(MouseMode == MouseMode.setOneSailer)
+            else if(mouseMode == MouseMode.setOneSailer)
             {
                         if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown)
                         {
@@ -308,8 +323,10 @@ namespace Ships
                     setterCounter++;
                             if (setterCounter > 3)
                             {
-                                MouseMode = MouseMode.standby;
+                                mouseMode = MouseMode.standby;
                                 setterCounter = 0;
+                                encryptor.setType(MessageType.ready);
+                                Sender();
                             }
                         }
             }
@@ -327,13 +344,13 @@ namespace Ships
 
         private void Mouse_Enter_DisplayTile(object sender, RoutedEventArgs e)
         {
-            if (MouseMode == MouseMode.shoot || MouseMode == MouseMode.standby) return;
+            if (mouseMode == MouseMode.shoot || mouseMode == MouseMode.standby) return;
             var button = (Button)sender;
             var column = Grid.GetColumn(button);
             var row = Grid.GetRow(button);
             TileState[] tmp = new TileState[100];
             displayState.CopyTo(tmp, 0);
-            if (MouseMode == MouseMode.setFourSailer)
+            if (mouseMode == MouseMode.setFourSailer)
             {
                 displayState.CopyTo(tmp, 0);
                 if (isVertical)
@@ -374,7 +391,7 @@ namespace Ships
 
                 }
             }
-            else if (MouseMode == MouseMode.setThreeSailer)
+            else if (mouseMode == MouseMode.setThreeSailer)
             {
                 if (isVertical)
                 {
@@ -410,7 +427,7 @@ namespace Ships
 
                 }
             }
-            else if (MouseMode == MouseMode.setTwoSailer)
+            else if (mouseMode == MouseMode.setTwoSailer)
             {
                 if (isVertical)
                 {
@@ -442,7 +459,7 @@ namespace Ships
 
                 }
             }
-            else if (MouseMode == MouseMode.setOneSailer)
+            else if (mouseMode == MouseMode.setOneSailer)
             {
                 if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown)
                 {
@@ -710,7 +727,7 @@ namespace Ships
             {
                 if(button is Button) button.Background = waterBrush;
             });
-            MouseMode = MouseMode.setFourSailer;
+            mouseMode = MouseMode.setFourSailer;
             /*DB02.Background = waterBrush;
             DB03.Background = sunkBrush;
             DB04.Background = fireBrush;
