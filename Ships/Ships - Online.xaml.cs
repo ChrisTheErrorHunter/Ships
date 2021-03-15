@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Windows.Resources;
 using System.Net.Sockets;
 using System.Threading;
+using System.Text.Json;
 using ShipsClassLib;
 
 namespace Ships
@@ -26,8 +27,8 @@ namespace Ships
         private Socket socket;
         private TcpListener server = null;
         private TcpClient client;
-        private MessageEncryptor encryptor = new MessageEncryptor();
-        private MessageEncryptor encryptorContainer = new MessageEncryptor();
+        private Message message = new Message();
+        private Message container = new Message();
         private MouseMode mouseMode = new MouseMode();
         private TileState[] displayState = new TileState[100];
         private TileState[] playState = new TileState[100];
@@ -36,6 +37,8 @@ namespace Ships
         private bool turn;
         private bool opponentReady = false;
         private string tmptxt;
+        private string json;
+        private string rcvjson;
         private ImageBrush waterBrush = new ImageBrush();
         private ImageBrush fireBrush = new ImageBrush();
         private ImageBrush shipBrush = new ImageBrush();
@@ -88,8 +91,8 @@ namespace Ships
                     Close();
                 }
                 turn = true;
-                encryptor.mesType = MessageType.connected;
-                Sender();
+                message.mesType = MessageType.connected;
+                Sender(message);
             }
             NewGame();
             new Thread(() =>
@@ -104,16 +107,17 @@ namespace Ships
         
         private void Listiner()
         {
-            byte[] buffer = new Byte[4];
+            byte[] buffer = new Byte[64];
             socket.Receive(buffer);
-            encryptor.Decrypt(buffer);
+            rcvjson = Encoding.ASCII.GetString(buffer);
+            message = JsonSerializer.Deserialize<Message>(rcvjson);
             //MessageBox.Show("1");
-            if (encryptor.mesType == MessageType.connected)
+            if (message.mesType == MessageType.connected)
             {
                 tmptxt = "Ustaw swoje statki!";
                 RunByDispatcher(ChTopLabel);
             }
-            else if (encryptor.mesType == MessageType.ready)
+            else if (message.mesType == MessageType.ready)
             {
                 MessageBox.Show("Opponent ready");
                 opponentReady = true;
@@ -122,10 +126,15 @@ namespace Ships
 
         }
 
-        private void Sender()
+        private byte[] Serialize(Message message)
         {
-            byte[] buffer = new Byte[4];
-            buffer = encryptor.Encrypt();
+            json = JsonSerializer.Serialize(message);
+            return Encoding.ASCII.GetBytes(json);
+        }
+
+        private void Sender(Message message)
+        {
+            byte[] buffer = Serialize(message);
             socket.Send(buffer);
         }
         private void InitializeBrushes()
@@ -325,8 +334,8 @@ namespace Ships
                             {
                                 mouseMode = MouseMode.standby;
                                 setterCounter = 0;
-                                encryptor.setType(MessageType.ready);
-                                Sender();
+                               // encryptor.setType(MessageType.ready);
+                                Sender(message);
                             }
                         }
             }
