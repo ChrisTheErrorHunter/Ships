@@ -15,6 +15,11 @@ namespace ShipsClassLib
         public bool isVertical { get; set; }
         public Message() { }
 
+        public void setType(MessageType type)
+        {
+            mesType = type;
+        }
+
         public void setValues(MessageType MESTYPE, int ROW, int COLUMN, int SHIPSIZE, bool ISVERTICAL)
         {
             this.mesType = MESTYPE;

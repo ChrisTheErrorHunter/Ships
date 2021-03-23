@@ -8,32 +8,32 @@ namespace ShipsClassLib
 {
     public class Ship
     {
-        int shipID = 0;
-        int size = 0;
-        int hits = 0;
-        int row, column;
-        bool isVertical;
-        public Ship() { }
-
-        public Ship(int insize, int inid)
+        public int size = 0;
+        public int hits = 0;
+        public int row, column;
+        public bool isVertical;
+        public Ship() 
         {
-            this.size = insize;
-            this.shipID = inid;
+            size = 0;
+            hits = 0;
+            row = -1;
+            column = -1;
+            isVertical = false;
         }
 
-        public void SetSail(int ROW, int COLUMN, bool ISVERTICAL)
+        public Ship(int insize)
+        {
+            this.size = insize;
+        }
+
+        public void SetSail(int ROW, int COLUMN, int SIZE, bool ISVERTICAL)
         {
             this.row = ROW;
             this.column = COLUMN;
+            this.size = SIZE;
             this.isVertical = ISVERTICAL;
         }
-
-        public bool IsThatYou(int ID)
-        {
-            if (ID == shipID) return true;
-            else return false;
-        }
-        public void GotHit(int ID)
+        public void GotHit()
         {
             hits++;
         }
@@ -41,6 +41,22 @@ namespace ShipsClassLib
         {
             if (hits >= size) return true;
             else return false;
+        }
+
+        public bool isHit(int inrow, int incolumn)
+        {
+            for(int i = 0; i < size; i++)
+            {
+                if (isVertical)
+                {
+                    if (row + i == inrow) return true;
+                }
+                else
+                {
+                    if (column + i == incolumn) return true;
+                }
+            }
+            return false;
         }
     }
 }

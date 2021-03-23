@@ -14,6 +14,7 @@ namespace ShipsClassLib
             hitrequest,
             response,
             missedresponse,
-            ready
+            ready,
+            responsesunk
         }
 }

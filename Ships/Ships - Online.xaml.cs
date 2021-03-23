@@ -35,7 +35,7 @@ namespace Ships
         private int setterCounter = 0;
         private bool isVertical = false;
         private bool turn;
-        private bool opponentReady = false;
+        private bool opponentReady;
         private string tmptxt;
         private string json;
         private string rcvjson;
@@ -45,26 +45,7 @@ namespace Ships
         private ImageBrush sunkBrush = new ImageBrush();
         private ImageBrush aimBrush = new ImageBrush();
         private ImageBrush currentBrush = new ImageBrush();
-        private Ship Ship40 = new Ship(4, 40);
-        private Ship Ship30 = new Ship(3, 30);
-        private Ship Ship31 = new Ship(3, 31);
-        private Ship Ship20 = new Ship(2, 20);
-        private Ship Ship21 = new Ship(2, 21);
-        private Ship Ship22 = new Ship(2, 22);
-        private Ship Ship10 = new Ship(1, 10);
-        private Ship Ship11 = new Ship(1, 11);
-        private Ship Ship12 = new Ship(1, 12);
-        private Ship Ship13 = new Ship(1, 13);
-        private Ship EnemyShip40 = new Ship(4, 40);
-        private Ship EnemyShip30 = new Ship(3, 30);
-        private Ship EnemyShip31 = new Ship(3, 31);
-        private Ship EnemyShip20 = new Ship(2, 20);
-        private Ship EnemyShip21 = new Ship(2, 21);
-        private Ship EnemyShip22 = new Ship(2, 22);
-        private Ship EnemyShip10 = new Ship(1, 10);
-        private Ship EnemyShip11 = new Ship(1, 11);
-        private Ship EnemyShip12 = new Ship(1, 12);
-        private Ship EnemyShip13 = new Ship(1, 13);
+        private Ship[] ships = new Ship[10];
 
         public Ships___Online() { }
         public Ships___Online(bool isHsot, string Ipv4)
@@ -77,6 +58,8 @@ namespace Ships
                 server.Start();
                 socket = server.AcceptSocket();
                 turn = false;
+                tmptxt = "Ustaw swoje statki!";
+                RunByDispatcher(ChTopLabel);
             }
             else
             {
@@ -111,6 +94,8 @@ namespace Ships
             socket.Receive(buffer);
             rcvjson = Encoding.ASCII.GetString(buffer);
             message = JsonSerializer.Deserialize<Message>(rcvjson);
+            var row = message.row;
+            var column = message.column;
             //MessageBox.Show("1");
             if (message.mesType == MessageType.connected)
             {
@@ -119,11 +104,43 @@ namespace Ships
             }
             else if (message.mesType == MessageType.ready)
             {
-                MessageBox.Show("Opponent ready");
-                opponentReady = true;
-                if (mouseMode == MouseMode.standby) mouseMode = MouseMode.shoot;
+                tmptxt = "Przeciwnik jest gotowy!";
+                RunByDispatcher(ChTopLabel);
+                
             }
-
+            else if (message.mesType == MessageType.hitrequest)
+            {
+                if(displayState[(row - 1) * 10 + (column - 1)] == TileState.Ally)
+                {
+                    foreach(Ship ship in ships)
+                    {
+                        if(ship.isHit(message.row, message.column))
+                        {
+                            ship.GotHit();
+                            if (ship.IsSunk())
+                            {
+                                message.setValues(MessageType.responsesunk, ship.row, ship.column, ship.size, ship.isVertical);
+                            }
+                            else message.setValues(MessageType.response, 0, 0, 0, false);
+                            break;
+                        }
+                    }
+                }
+                else message.setValues(MessageType.missedresponse, 0, 0, 0, false);
+                Sender(message);
+            }
+            else if(message.mesType == MessageType.response)
+            {
+                MessageBox.Show("Trafiony");
+            }
+            else if (message.mesType == MessageType.responsesunk)
+            {
+                MessageBox.Show("Zatopiony");
+            }
+            else if (message.mesType == MessageType.missedresponse)
+            {
+                MessageBox.Show("Pudlo");
+            }
         }
 
         private byte[] Serialize(Message message)
@@ -169,6 +186,8 @@ namespace Ships
                 var button = (Button)sender;
                 var row = Grid.GetRow(button);
                 var column = Grid.GetColumn(button);
+                message.setValues(MessageType.hitrequest, row, column, 0, false);
+                Sender(message);
             }
             
         }
@@ -195,7 +214,8 @@ namespace Ships
                             displayState[(row + 1) * 10 + column - 1] = TileState.Ally;
                             displayState[(row + 2) * 10 + column - 1] = TileState.Ally;
                             UpdateDisplayBoard();
-                            Ship40.SetSail(row, column, isVertical);
+                            ships[0] = new Ship();
+                            ships[0].SetSail(row, column, 4, isVertical);
                             mouseMode = MouseMode.setThreeSailer;
                         }
                     }
@@ -214,7 +234,8 @@ namespace Ships
                             displayState[(row - 1) * 10 + column + 1] = TileState.Ally;
                             displayState[(row - 1) * 10 + column + 2] = TileState.Ally;
                             UpdateDisplayBoard();
-                            Ship40.SetSail(row, column, isVertical);
+                            ships[0] = new Ship();
+                            ships[0].SetSail(row, column, 4, isVertical);
                             mouseMode = MouseMode.setThreeSailer;
                         }
                     }
@@ -235,8 +256,16 @@ namespace Ships
                             displayState[(row) * 10 + column - 1] = TileState.Ally;
                             displayState[(row + 1) * 10 + column - 1] = TileState.Ally;
                             UpdateDisplayBoard();
-                            if (setterCounter == 0) Ship30.SetSail(row, column, isVertical);
-                            else Ship31.SetSail(row, column, isVertical);
+                            if (setterCounter == 0)
+                            {
+                                ships[1] = new Ship();
+                                ships[1].SetSail(row, column, 3, isVertical);
+                            }
+                            else
+                            {
+                                ships[2] = new Ship();
+                                ships[2].SetSail(row, column, 3, isVertical);
+                            }
                             setterCounter++;
                             if(setterCounter > 1)
                             {
@@ -258,8 +287,16 @@ namespace Ships
                             displayState[(row - 1) * 10 + column] = TileState.Ally;
                             displayState[(row - 1) * 10 + column + 1] = TileState.Ally;
                             UpdateDisplayBoard();
-                            if (setterCounter == 0) Ship30.SetSail(row, column, isVertical);
-                            else Ship31.SetSail(row, column, isVertical);
+                            if (setterCounter == 0)
+                            {
+                                ships[1] = new Ship();
+                                ships[1].SetSail(row, column, 3, isVertical);
+                            }
+                            else
+                            {
+                                ships[2] = new Ship();
+                                ships[2].SetSail(row, column, 3, isVertical);
+                            }
                             setterCounter++;
                             if (setterCounter > 1)
                             {
@@ -283,9 +320,22 @@ namespace Ships
                             displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
                             displayState[(row) * 10 + column - 1] = TileState.Ally;
                             UpdateDisplayBoard();
-                            if (setterCounter == 0) Ship20.SetSail(row, column, isVertical);
-                            else if (setterCounter == 1) Ship21.SetSail(row, column, isVertical);
-                            else Ship22.SetSail(row, column, isVertical);
+                            if (setterCounter == 0)
+                            {
+                                ships[3] = new Ship();
+                                ships[3].SetSail(row, column, 2, isVertical);
+                            }
+                            else if (setterCounter == 1)
+                            {
+                                ships[4] = new Ship();
+                                ships[4].SetSail(row, column, 2, isVertical);
+                            }
+                            else
+                            {
+                                ships[5] = new Ship();
+                                ships[5].SetSail(row, column, 2, isVertical);
+                            }
+
                             setterCounter++;
                             if (setterCounter > 2)
                             {
@@ -305,9 +355,21 @@ namespace Ships
                             displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
                             displayState[(row - 1) * 10 + column] = TileState.Ally;
                             UpdateDisplayBoard();
-                            if (setterCounter == 0) Ship20.SetSail(row, column, isVertical);
-                            else if (setterCounter == 1) Ship21.SetSail(row, column, isVertical);
-                            else Ship22.SetSail(row, column, isVertical);
+                            if (setterCounter == 0)
+                            {
+                                ships[3] = new Ship();
+                                ships[3].SetSail(row, column, 2, isVertical);
+                            }
+                            else if (setterCounter == 1)
+                            {
+                                ships[4] = new Ship();
+                                ships[4].SetSail(row, column, 2, isVertical);
+                            }
+                            else
+                            {
+                                ships[5] = new Ship();
+                                ships[5].SetSail(row, column, 2, isVertical);
+                            }
                             setterCounter++;
                             if (setterCounter > 2)
                             {
@@ -321,23 +383,40 @@ namespace Ships
             }
             else if(mouseMode == MouseMode.setOneSailer)
             {
-                        if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown)
-                        {
+                    if (displayState[(row - 1) * 10 + column - 1] == TileState.Unknown)
+                    {
                             displayState[(row - 1) * 10 + column - 1] = TileState.Ally;
                             UpdateDisplayBoard();
-                    if (setterCounter == 0) Ship10.SetSail(row, column, isVertical);
-                    else if (setterCounter == 1) Ship11.SetSail(row, column, isVertical);
-                    else if (setterCounter == 2) Ship12.SetSail(row, column, isVertical);
-                    else Ship13.SetSail(row, column, isVertical);
+                    if (setterCounter == 0)
+                    {
+                        ships[6] = new Ship();
+                        ships[6].SetSail(row, column, 1, isVertical);
+                    }
+                    else if (setterCounter == 1)
+                    {
+                        ships[7] = new Ship();
+                        ships[7].SetSail(row, column, 1, isVertical);
+                    }
+                    else if (setterCounter == 2)
+                    {
+                        ships[8] = new Ship();
+                        ships[8].SetSail(row, column, 1, isVertical);
+                    }
+                    else
+                    {
+                        ships[9] = new Ship();
+                        ships[9].SetSail(row, column, 1, isVertical);
+                    }
+
                     setterCounter++;
                             if (setterCounter > 3)
                             {
-                                mouseMode = MouseMode.standby;
+                                mouseMode = MouseMode.shoot;
                                 setterCounter = 0;
-                               // encryptor.setType(MessageType.ready);
+                                message.setType(MessageType.ready);
                                 Sender(message);
                             }
-                        }
+                    }
             }
 
         }
@@ -726,6 +805,7 @@ namespace Ships
 
         private void NewGame()
         {
+            opponentReady = false;
             playState.ToList<TileState>().ForEach(member => member = TileState.Unknown);
             displayState.ToList<TileState>().ForEach(member => member = TileState.Unknown);
             DisplayContainer.Children.Cast<Control>().ToList().ForEach(button =>
