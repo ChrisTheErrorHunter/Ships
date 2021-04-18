@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.Windows.Resources;
 using System.Net.Sockets;
 using System.Threading;
-using System.Text.Json;
+using Newtonsoft.Json;
 using ShipsClassLib;
 
 namespace Ships
@@ -50,6 +50,7 @@ namespace Ships
         public Ships___Online() { }
         public Ships___Online(bool isHsot, string Ipv4)
         {
+            
             InitializeComponent();
             InitializeBrushes();
             if(isHsot)
@@ -93,7 +94,7 @@ namespace Ships
             byte[] buffer = new Byte[64];
             socket.Receive(buffer);
             rcvjson = Encoding.ASCII.GetString(buffer);
-            message = JsonSerializer.Deserialize<Message>(rcvjson);
+            message = JsonConvert.DeserializeObject<Message>(rcvjson);
             var row = message.row;
             var column = message.column;
             //MessageBox.Show("1");
@@ -145,7 +146,7 @@ namespace Ships
 
         private byte[] Serialize(Message message)
         {
-            json = JsonSerializer.Serialize(message);
+            json = JsonConvert.SerializeObject(message);
             return Encoding.ASCII.GetBytes(json);
         }
 
