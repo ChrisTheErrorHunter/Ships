@@ -90,10 +90,9 @@ namespace Ships
         
         private void Listiner()
         {
-            byte[] buffer = new Byte[64];
+            byte[] buffer = new Byte[65];
             socket.Receive(buffer);
             rcvjson = Encoding.ASCII.GetString(buffer);
-            message = JsonSerializer.Deserialize<Message>(rcvjson);
             var row = message.row;
             var column = message.column;
             //MessageBox.Show("1");
